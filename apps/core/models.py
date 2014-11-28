@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 
-class ParentModel(models.Model):
+class SimpleAbstract(models.Model):
     """
     Abstract parent for all main records
     """
@@ -10,6 +10,18 @@ class ParentModel(models.Model):
     slug = models.SlugField(_("slug"))
     created = models.DateTimeField(auto_now_add=True)
     changed = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+    def __unicode__(self):
+        return self.title
+
+
+class ParentModel(SimpleAbstract):
+    """
+    Abstract parent for all main records
+    """
     is_publish = models.BooleanField(_('Is Published'), default=False)
     description = models.TextField(_("Description"), blank=True, null=True)
     text = models.TextField(_("Text"), blank=True, null=True)
@@ -18,9 +30,6 @@ class ParentModel(models.Model):
 
     class Meta:
         abstract = True
-
-    def __unicode__(self):
-        return self.title
 
 
 class Gallery(models.Model):
