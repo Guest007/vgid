@@ -60,4 +60,4 @@ class Images(models.Model):
         return url
 
     def __unicode__(self):
-        return self.title
+        return self.image.url
