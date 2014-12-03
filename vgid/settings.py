@@ -45,6 +45,8 @@ INSTALLED_APPS = (
 
     'core',
     'events',
+    'museums',
+    'showplaces',
 )
 
 MIDDLEWARE_CLASSES = (

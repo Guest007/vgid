@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from core.models import (ParentModel, get_file_name)
+from core.models import (ParentModel, SimpleAbstract, get_file_name)
 from events.models import Event
 from django.utils.translation import ugettext, ugettext_lazy as _
 from datetime import date
