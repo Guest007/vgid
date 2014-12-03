@@ -20,4 +20,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 STATIC_ROOT = '/home/guest007/tmp/Projects/vyborg-gid/static/'
 MEDIA_ROOT = '/home/guest007/tmp/Projects/vyborg-gid/media/'
 
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.dbm_kvstore.KVStore'
+
 # fbsite.directory = "images/"
