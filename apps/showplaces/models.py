@@ -17,6 +17,9 @@ class Place(ParentModel):
                                    decimal_places=2, blank=True, null=True)
     tickets = models.TextField(_("Ticket's cost"), blank=True, default='')
     events = models.ManyToManyField(Event, blank=True, null=True)
+    place_type = models.ForeignKey("PlaceType")
+    locality = models.ForeignKey("Locality", blank=True, null=True)
+    # tours = models.ManyToManyField(Tour, blank=True, null=True)
 
 
 class PlaceType(SimpleAbstract):
