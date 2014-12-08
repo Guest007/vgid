@@ -10,7 +10,7 @@ from sorl.thumbnail import ImageField
 
 class History(ParentModel):
     """
-        main Event model for important events
+        main Event model for news and history
     """
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True, null=True)
     section = models.ForeignKey("Section", blank=True)
