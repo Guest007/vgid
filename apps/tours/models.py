@@ -24,7 +24,7 @@ class Tour(ParentModel):
                                  help_text=u'Тип экскурсии - индивидуальная/сборная')
     route = models.URLField(u"Маршрут", blank=True,
                             help_text=u'Место для ссылки на карту с маршрутом')
-    # here we need link to rewiews. How? VK and E-Mail
+    # here we need link to rewiews. How? VK and E-Mail...
 
 
 class TourType(SimpleAbstract):

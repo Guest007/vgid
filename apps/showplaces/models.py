@@ -15,7 +15,7 @@ class Place(ParentModel):
                        null=True)
     distance = models.DecimalField(u'Расстояние', max_digits=5,
                                    decimal_places=2, blank=True, null=True,
-                                   help_text=u'Расстояние от города')
+                                   help_text=u'Расстояние от города в км.')
     tickets = models.TextField(_("Ticket's cost"), blank=True, default='')
     place_type = models.ForeignKey("PlaceType", blank=True, null=True)
     locality = models.ForeignKey("Locality", blank=True, null=True)
