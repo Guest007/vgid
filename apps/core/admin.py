@@ -22,6 +22,7 @@ class ImageForm(ModelForm):
 
     class Meta:
         model = Image
+        exclude = ['created']
         widgets = {
           'image': AdminImageWidget,
         }
