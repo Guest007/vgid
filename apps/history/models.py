@@ -14,10 +14,17 @@ class History(ParentModel):
     """
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True, null=True)
     section = models.ForeignKey("Section", blank=True)
-    is_history = models.BooleanField(u'История', help_text=u'История - да, '
-                                                           u'Новости - нет')
+    is_history = models.BooleanField(u'История', default=False,
+                                     help_text=u'История - да, Новости - нет')
     event = models.ForeignKey(Event, blank=True)
+
+    class Meta:
+        verbose_name = u'Новость'
+        verbose_name_plural = u'Новости'
 
 
 class Section(SimpleAbstract):
-    pass
+
+    class Meta:
+        verbose_name = u'Раздел'
+        verbose_name_plural = u'Разделы'

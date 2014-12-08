@@ -56,7 +56,9 @@ class Gallery(SimpleAbstract):
     Galleries with description
     Images in separate model
     """
-    pass
+    class Meta:
+        verbose_name = u'Галерея'
+        verbose_name_plural = u'Галереи'
 
 
 class Image(models.Model):
@@ -79,3 +81,16 @@ class Section(SimpleAbstract):
     """
     text = models.TextField(_("Text"), blank=True, null=True,
                             help_text=u'Описание раздела')
+
+    class Meta:
+        verbose_name = u'Раздел сайта'
+        verbose_name_plural = u'Разделы сайта'
+
+
+class Locality(ParentModel):
+    """
+        Населённый пункт
+    """
+    class Meta:
+        verbose_name = u'Населённый пункт'
+        verbose_name_plural = u'Населённые пункты'

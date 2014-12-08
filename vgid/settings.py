@@ -47,6 +47,11 @@ INSTALLED_APPS = (
     'events',
     'museums',
     'showplaces',
+    'catering',
+    'history',
+    'leisure',
+    'living',
+    'tours',
 )
 
 MIDDLEWARE_CLASSES = (

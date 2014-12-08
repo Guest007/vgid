@@ -14,6 +14,13 @@ class Event(ParentModel):
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True, null=True)
     section = models.ForeignKey("Section", blank=True)
 
+    class Meta:
+        verbose_name = u'Событие'
+        verbose_name_plural = u'События'
+
 
 class Section(SimpleAbstract):
-    pass
+
+    class Meta:
+        verbose_name = u'Раздел'
+        verbose_name_plural = u'Разделы'

@@ -18,8 +18,8 @@ class Museum(ParentModel):
     tickets = models.TextField(_("Ticket's cost"), blank=True, default='')
     events = models.ManyToManyField(Event, blank=True, null=True)
 
+    class Meta:
+        verbose_name = u'Музей'
+        verbose_name_plural = u'Музеи'
 
-class Section(SimpleAbstract):
-    """
-        Раздел. Может иметь связь с другими моделями
-    """
+

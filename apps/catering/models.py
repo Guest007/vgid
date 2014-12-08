@@ -9,7 +9,9 @@ class CatType(SimpleAbstract):
     """
         Тип заведения
     """
-    pass
+    class Meta:
+        verbose_name = u'Тип заведения'
+        verbose_name_plural = u'Типы заведений'
 
 
 class Catering(ParentModel):
@@ -20,4 +22,8 @@ class Catering(ParentModel):
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True,
                        null=True)
     address = models.CharField(u'Адрес', max_length=200)
+
+    class Meta:
+        verbose_name = u'Питание'
+        verbose_name_plural = u'Точки общепита'
 

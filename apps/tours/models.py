@@ -12,7 +12,8 @@ class Tour(ParentModel):
     """
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True,
                        null=True)
-    duration = models.CharField(u"Длительность тура", blank=True, default='')
+    duration = models.CharField(u"Длительность тура", max_length=100,
+                                blank=True, default='')
     tour_type = models.ForeignKey("TourType", blank=True, null=True,
                                   help_text=u'для тематического фильтра - '
                                             u'военный, литература, кино, шведы...')
