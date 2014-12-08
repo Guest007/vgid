@@ -40,6 +40,13 @@ class ParentModel(SimpleAbstract):
     geo = models.CharField(u'Координаты', max_length=50, blank=True, default='',
                            help_text=u'Координаты для показа на карте')
 
+    meta_title = models.CharField(u'Мета-заголовок', max_length=80,
+                                  help_text=u'meta tag title не длиннее 80 символов')
+    meta_description = models.CharField(u'Мета-описание', max_length=200,
+                                        help_text=u'meta tag description не длиннее 200 символов')
+    meta_keyword = models.CharField(u'Ключевые слова', max_length=250,
+                                    help_text=u'meta tag keyword не длиннее 250 символов')
+
     class Meta:
         abstract = True
 
