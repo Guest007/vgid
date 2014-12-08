@@ -36,9 +36,7 @@ class ParentModel(SimpleAbstract):
     is_publish = models.BooleanField(_('Is Published'), default=False)
     description = models.TextField(_("Description"), blank=True, null=True)
     text = models.TextField(_("Text"), blank=True, null=True)
-    # image = models.ImageField(_("Image"))
-    gallery = models.ManyToManyField("Gallery", blank=True, null=True,
-                                related_name='gallery')
+    gallery = models.ManyToManyField("Gallery", blank=True, null=True)
     geo = models.CharField(_('Coordinates'), max_length=50, blank=True, default='')
 
     class Meta:
@@ -57,10 +55,18 @@ class Image(models.Model):
     """
     Image storage for all apps
     """
-    gallery = models.ForeignKey("Gallery", blank=True, null=True, related_name='in-gallery')
+    gallery = models.ForeignKey("Gallery", blank=True, null=True)
     image = ImageField(_("Image"), upload_to=get_file_name)
     is_checked = models.BooleanField(_('Checked'), default=False)
     created = models.DateTimeField(_('Created'), auto_now_add=True)
 
     def __unicode__(self):
         return self.image.url
+
+
+class Section(SimpleAbstract):
+    """
+    Описание разделов. Изображения берутся из постов. Или все, или ставить
+    там галочки...
+    """
+    text = models.TextField(_("Text"), blank=True, null=True)
