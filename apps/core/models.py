@@ -17,7 +17,7 @@ class SimpleAbstract(models.Model):
     """
     Abstract parent for all main records
     """
-    title = models.CharField(_("title"), max_length=500, default="")
+    title = models.CharField(u"Заголовок", max_length=500, default="")
     slug = models.SlugField(_("slug"))
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     changed = models.DateTimeField(_('Modified'), auto_now=True)
@@ -33,11 +33,12 @@ class ParentModel(SimpleAbstract):
     """
     Abstract parent for all main records
     """
-    is_publish = models.BooleanField(_('Is Published'), default=False)
-    description = models.TextField(_("Description"), blank=True, null=True)
-    text = models.TextField(_("Text"), blank=True, null=True)
+    is_publish = models.BooleanField(u'Опубликовано?', default=False)
+    description = models.TextField(u"Описание", blank=True, null=True)
+    text = models.TextField(u"Текст", blank=True, null=True)
     gallery = models.ManyToManyField("Gallery", blank=True, null=True)
-    geo = models.CharField(_('Coordinates'), max_length=50, blank=True, default='')
+    geo = models.CharField(u'Координаты', max_length=50, blank=True, default='',
+                           help_text=u'Координаты для показа на карте')
 
     class Meta:
         abstract = True
@@ -69,4 +70,5 @@ class Section(SimpleAbstract):
     Описание разделов. Изображения берутся из постов. Или все, или ставить
     там галочки...
     """
-    text = models.TextField(_("Text"), blank=True, null=True)
+    text = models.TextField(_("Text"), blank=True, null=True,
+                            help_text=u'Описание раздела')

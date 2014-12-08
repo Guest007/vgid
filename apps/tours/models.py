@@ -1,36 +1,49 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from core.models import (ParentModel, SimpleAbstract, get_file_name)
-from events.models import Event
+from showplaces.models import Place
 from django.utils.translation import ugettext, ugettext_lazy as _
-from datetime import date
 from sorl.thumbnail import ImageField
 
 
-class Place(ParentModel):
+class Tour(ParentModel):
     """
-    main ShowPlaces model
+    main Tour model
     """
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True,
                        null=True)
-    distance = models.DecimalField(_('Distance from Vyborg'), max_digits=5,
-                                   decimal_places=2, blank=True, null=True)
-    tickets = models.TextField(_("Ticket's cost"), blank=True, default='')
-    events = models.ManyToManyField(Event, blank=True, null=True)
-    place_type = models.ForeignKey("PlaceType")
-    locality = models.ForeignKey("Locality", blank=True, null=True)
-    # tours = models.ManyToManyField(Tour, blank=True, null=True)
+    duration = models.CharField(u"Длительность тура", blank=True, default='')
+    tour_type = models.ForeignKey("TourType", blank=True, null=True,
+                                  help_text=u'для тематического фильтра - '
+                                            u'военный, литература, кино, шведы...')
+    g_ind = models.ForeignKey("GeoIndicator",
+                              help_text=u'Географический признак (город/район)')
+    places = models.ManyToManyField(Place, blank=True, null=True,
+                                    related_name='tour-place')
+    complect = models.ForeignKey("Complectation",
+                                 help_text=u'Тип экскурсии - индивидуальная/сборная')
+    route = models.URLField(u"Маршрут", blank=True,
+                            help_text=u'Место для ссылки на карту с маршрутом')
+    # here we need link to rewiews. How? VK and E-Mail
 
 
-class PlaceType(SimpleAbstract):
+class TourType(SimpleAbstract):
     """
-        Type of showplace
+        Type of Tour
+        для тематического фильтра - военный, литература, кино, шведы...
     """
     pass
 
 
-class Locality(ParentModel):
+class GeoIndicator(SimpleAbstract):
     """
-        Населённый пункт
+        Географический признак (город/район)
+    """
+    pass
+
+
+class Complectation(SimpleAbstract):
+    """
+    тип экскурсии - индивидуальная/сборная
     """
     pass
