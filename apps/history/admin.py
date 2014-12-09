@@ -6,8 +6,12 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 
 class HistoryAdmin(AdminImageMixin, reversion.VersionAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
+
+
+class SectionAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(History, HistoryAdmin)
-admin.site.register(Section)
+admin.site.register(Section, SectionAdmin)

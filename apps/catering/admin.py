@@ -6,8 +6,12 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 
 class CateringAdmin(AdminImageMixin, reversion.VersionAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
+
+
+class CatTypeAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Catering, CateringAdmin)
-admin.site.register(CatType)
+admin.site.register(CatType, CatTypeAdmin)

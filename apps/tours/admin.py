@@ -6,7 +6,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 
 class TourAdmin(AdminImageMixin, reversion.VersionAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Tour, TourAdmin)

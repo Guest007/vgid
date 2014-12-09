@@ -6,8 +6,12 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 
 class EventAdmin(AdminImageMixin, reversion.VersionAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
+
+
+class SectionAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Event, EventAdmin)
-admin.site.register(Section)
+admin.site.register(Section, SectionAdmin)

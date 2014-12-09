@@ -6,9 +6,17 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 
 class LivingAdmin(AdminImageMixin, reversion.VersionAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
+
+
+class LivingTypeAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
+
+class RoomAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Living, LivingAdmin)
-admin.site.register(LivingType)
-admin.site.register(Room)
+admin.site.register(LivingType, LivingTypeAdmin)
+admin.site.register(Room, RoomAdmin)

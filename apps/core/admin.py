@@ -35,15 +35,20 @@ class ImagesInline(AdminImageMixin, admin.TabularInline):
 
 
 class GalleryAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     inlines = [
         ImagesInline,
     ]
 
 
 class LocalityAdmin(AdminImageMixin, reversion.VersionAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
+
+
+class SectionAdmin(AdminImageMixin, reversion.VersionAdmin):
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Locality, LocalityAdmin)
 admin.site.register(Gallery, GalleryAdmin)
-admin.site.register(Section)
+admin.site.register(Section, SectionAdmin)
