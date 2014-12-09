@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+import reversion
 from history.models import History, Section
 from sorl.thumbnail.admin import AdminImageMixin
 
 
-class HistoryAdmin(AdminImageMixin, admin.ModelAdmin):
+class HistoryAdmin(AdminImageMixin, reversion.VersionAdmin):
     pass
 
 

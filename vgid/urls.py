@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'vgid.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    (r'^ckeditor/', include('ckeditor.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 if settings.DEBUG:

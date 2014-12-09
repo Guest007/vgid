@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+import reversion
 from catering.models import Catering, CatType
 from sorl.thumbnail.admin import AdminImageMixin
 
 
-class CateringAdmin(AdminImageMixin, admin.ModelAdmin):
+class CateringAdmin(AdminImageMixin, reversion.VersionAdmin):
     pass
 
 

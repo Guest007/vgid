@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ckeditor.fields import RichTextField
 from django.db import models
 from core.models import (ParentModel, SimpleAbstract, get_file_name)
 from django.utils.translation import ugettext, ugettext_lazy as _
@@ -40,7 +41,7 @@ class Living(ParentModel):
                                    help_text=u'Расстояние от города в км.')
     address = models.CharField(u'Адрес', max_length=200)
     category = models.CharField(u'Классность', max_length=100)
-    service = models.TextField(u'', blank=True, help_text=u'Доп. услуги')
+    service = RichTextField(u'', blank=True, help_text=u'Доп. услуги')
 
     class Meta:
         verbose_name = u'Проживание'

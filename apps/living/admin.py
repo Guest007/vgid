@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from living.models import Living, LivingType
+import reversion
+from living.models import Living, LivingType, Room
 from sorl.thumbnail.admin import AdminImageMixin
 
 
-class LivingAdmin(AdminImageMixin, admin.ModelAdmin):
+class LivingAdmin(AdminImageMixin, reversion.VersionAdmin):
     pass
 
 
 admin.site.register(Living, LivingAdmin)
 admin.site.register(LivingType)
+admin.site.register(Room)

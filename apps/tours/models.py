@@ -27,24 +27,34 @@ class Tour(ParentModel):
                             help_text=u'Место для ссылки на карту с маршрутом')
     # here we need link to rewiews. How? VK and E-Mail...
 
+    class Meta:
+        verbose_name = u'"Экскурсия"'
+        verbose_name_plural = u'Экскурсии'
+
 
 class TourType(SimpleAbstract):
     """
         Type of Tour
         для тематического фильтра - военный, литература, кино, шведы...
     """
-    pass
+    class Meta:
+        verbose_name = u'Тематический фильтр'
+        verbose_name_plural = u'Тематические фильтры'
 
 
 class GeoIndicator(SimpleAbstract):
     """
         Географический признак (город/район)
     """
-    pass
+    class Meta:
+        verbose_name = u'Географический признак'
+        verbose_name_plural = u'Географический признак'
 
 
 class Complectation(SimpleAbstract):
     """
     тип экскурсии - индивидуальная/сборная
     """
-    pass
+    class Meta:
+        verbose_name = u'Тип экскурсии'
+        verbose_name_plural = u'Типы экскурсий'

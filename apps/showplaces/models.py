@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ckeditor.fields import RichTextField
 from django.db import models
 from core.models import (ParentModel, SimpleAbstract, get_file_name, Locality)
 from django.utils.translation import ugettext, ugettext_lazy as _
@@ -15,7 +16,7 @@ class Place(ParentModel):
     distance = models.DecimalField(u'Расстояние', max_digits=5,
                                    decimal_places=2, blank=True, null=True,
                                    help_text=u'Расстояние от города в км.')
-    tickets = models.TextField(_("Ticket's cost"), blank=True, default='')
+    tickets = RichTextField(_("Ticket's cost"), blank=True, default='')
     place_type = models.ForeignKey("PlaceType", blank=True, null=True)
     locality = models.ForeignKey(Locality, blank=True, null=True)
     # tours = models.ManyToManyField(Tour, blank=True, null=True)

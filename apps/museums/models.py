@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ckeditor.fields import RichTextField
 from django.db import models
 from core.models import (ParentModel, SimpleAbstract, get_file_name)
 from events.models import Event
@@ -15,7 +16,7 @@ class Museum(ParentModel):
                        null=True)
     w_hours = models.CharField(_('Working hours'), max_length=100, blank=True,
                                default='')
-    tickets = models.TextField(_("Ticket's cost"), blank=True, default='')
+    tickets = RichTextField(_("Ticket's cost"), blank=True, default='')
     events = models.ManyToManyField(Event, blank=True, null=True)
 
     class Meta:

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from core.models import Gallery, Image
+import reversion
+from core.models import Gallery, Image, Locality, Section
 from sorl.thumbnail.admin import AdminImageMixin
 from django.contrib.admin.widgets import AdminFileWidget
 from django.utils.safestring import mark_safe
@@ -33,10 +34,16 @@ class ImagesInline(AdminImageMixin, admin.TabularInline):
     form = ImageForm
 
 
-class GalleryAdmin(AdminImageMixin, admin.ModelAdmin):
+class GalleryAdmin(AdminImageMixin, reversion.VersionAdmin):
     inlines = [
         ImagesInline,
     ]
 
+
+class LocalityAdmin(AdminImageMixin, reversion.VersionAdmin):
+    pass
+
+
+admin.site.register(Locality, LocalityAdmin)
 admin.site.register(Gallery, GalleryAdmin)
-# admin.site.register(Images)
+admin.site.register(Section)
