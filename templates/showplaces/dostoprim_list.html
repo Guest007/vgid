@@ -1,0 +1,107 @@
+{% load showplace_filter from sp_filter %}
+{% load static from staticfiles %}
+
+{% block color_line %}
+    <div class="green-bar">
+      <h2>Достопримечательности Выборга и окрестностей</h2>
+    </div>
+{% endblock %}
+
+{% block main_content %}
+
+      <div class="block-sights-n-filters bg-night-blue">
+      <div class="container">
+        <div class="row">
+
+{{ showplace_filter }}
+
+          <div class="block-sights-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+            <div class="sights-rows clearfix">
+<!-- START OF INFO BLOCK (4 in line) -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a class="sights-row btn btn-raised" href="javascript:void(0)">
+                <span class="label label-default label-place">Выборг</span>
+
+                <h3>Город.<br/>ЗАГОЛОВОК ДОСТОПРИМЕЧАТЕЛЬНОСТИ</h3>
+
+                <div class="img text-center margin-top-15">
+                  <img src="img/img-city-teaser-1.jpg" alt="">
+                </div>
+                <div class="text margin-top-15">
+                  Выборг, бывший Виипури - иностранный город в составе Ленинградской области,
+                  удивительное место, где можно в полной мере ощутить атмосферу в составе
+                  Ленинградской области, удивительное
+                </div>
+              </a>
+            </div>
+<!-- END OF INFO BLOCK -->
+
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+{#    <div class="block-slider-promo bg-night-blue margin-top-20">#}
+{#      <div class="container">#}
+{#        <ul class="bxslider clearfix">#}
+{#          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>#}
+{#          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>#}
+{#          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>#}
+{#        </ul>#}
+{#      </div>#}
+{#    </div>#}
+
+
+    <div class="bg-night-blue margin-top-20">
+      <div class="container">
+        <a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="img" class="img-responsive margin-top-20 margin-bottom-20" /></a>
+      </div>
+    </div>
+
+
+  <div class="block-sights-n-filters bg-night-blue margin-top-20">
+    <div class="container">
+      <div class="row">
+        <div class="block-sights-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+          <div class="sights-rows clearfix">
+<!-- START OF INFO BLOCK (4 in line) -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a class="sights-row btn btn-raised" href="javascript:void(0)">
+                <span class="label label-default label-place">Выборг</span>
+
+                <h3>Город.<br/>ЗАГОЛОВОК ДОСТОПРИМЕЧАТЕЛЬНОСТИ</h3>
+
+                <div class="img text-center margin-top-15">
+                  <img src="img/img-city-teaser-1.jpg" alt="">
+                </div>
+                <div class="text margin-top-15">
+                  Выборг, бывший Виипури - иностранный город в составе Ленинградской области,
+                  удивительное место, где можно в полной мере ощутить атмосферу в составе
+                  Ленинградской области, удивительное
+                </div>
+              </a>
+            </div>
+<!-- END OF INFO BLOCK -->
+
+          </div>
+<!-- END OF INFO ROW -->
+        </div>
+      </div>
+      <div class="text-center margin-bottom-60">
+        <a href="javascript:void(0)" class="btn btn-load-more-v1 btn-fab btn-raised"
+           data-url="load-more-test.json" data-count="20">
+          <span class="mdi-av-replay"></span>
+          <span class="text">Показать еще 20</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
