@@ -59,3 +59,4 @@ target/
 
 # Project
 vgid/local_settings.py
+static
