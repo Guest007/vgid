@@ -39,11 +39,17 @@
 </head>
 
 <body>
+<div class="visible-detect">
+    <div class="visible-lg" data-resolution="lg"></div>
+    <div class="visible-md" data-resolution="md"></div>
+    <div class="visible-sm" data-resolution="sm"></div>
+    <div class="visible-xs" data-resolution="xs"></div>
+</div>
 <!-- START OF HEADER -->
 
 <div class="header">
   <div class="block-icons-bar fixed">
-{{ side_menu }}
+{% side_menu %}
   </div>
 
 <!-- START OF TOP LINE -->
@@ -96,14 +102,12 @@
           </div>
           <div class="col-xs-12 col-sm-4">
             <div class="excursion-order-wrap"> {# TODO: Остался вопрос: как менять цвет человечка вместе с block color_line? #}
+              <img src="{% static 'img/bg-excursion-hand.png' %}">
               <a href="javascript:void(0)" class="btn btn-default btn-fab btn-raised" data-toggle="modal" data-target="#orderExcursionModal">Заказать<br /> экскурсию</a>
             </div>
           </div>
         </div>
       </div>
-      <!--div class="layer-1">
-        <img src="img/bg-header-city.jpg">
-      </div-->
     </div>
 <!-- END OF MIDDLE LINE -->
 
@@ -128,6 +132,7 @@
 <!-- START OF FOOTER -->
   
   <div class="footer">
+<!--
     <div class="footer-menu">
       <div class="container">
         <div class="row margin-for-icons">
@@ -204,6 +209,7 @@
         </div>
       </div>
     </div>
+-->
     <div class="footer-social">
       <div class="container">
         <a href="javascript:void(0)" class="btn btn-raised btn-fab btn-vk"><i class="not-fontello mdi-editor-format-bold"></i></a>
@@ -225,7 +231,7 @@
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 footer-tooltip-wrap">
               <div class="footer-tooltip pull-right">
                 <h3>Туристический информационный центр</h3>
-                <img src="img/logo.png" class="logo margin-top-20" alt="Logo">
+                <img src="{% static 'img/logo.png' %}" class="logo margin-top-20" alt="Logo">
                 <div>
                   Выборг, <br />
                   ул. Прогонная, 7-а, <br />

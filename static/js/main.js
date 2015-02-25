@@ -20,15 +20,6 @@ var ajaxifyCallbacks = function () {
         setTimeout(function(){ form.parents('.modal').modal('hide'); form.find('.status-message').remove(); }, 3000);
       }
     },
-    beforesend: {
-      //Default submit callback
-      defaultCallback: function(e, form, request) {
-        
-      },
-      userRegFormCallback: function(e, form, request) {
-        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-      }
-    },
     //Validate callbacks
     validate: {
       //Default validate callback. Return TRUE if there is some errors
@@ -172,6 +163,7 @@ $(document).on('click', '.btn-load-more-v1', function(e){
       cont.append(rows);
       rows.animate({opacity: 1}, 300, function(){
         rows.find('a').ripples();
+        $(window).resize();
       });
     }
   });
@@ -181,6 +173,29 @@ $(document).on('click', '.to-up-wrap a', function(e){
   e.preventDefault();
   $('html, body').animate({scrollTop: 0}, 1000);
 });
+
+$(window).on('resize load', function(){
+  var rows = $('.block-sights-rows .sights-rows'), inRow = 4, resolutionName = $('.visible-detect div').filter(':visible').data('resolution');
+  if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
+  //console.log(resolutionName);
+  //console.log(inRow);
+  rows.each(function(){
+    var cells = $(this).find('.sights-row'), i = 1, maxH = 0;
+    cells.css({'min-height': 0});
+    cells.each(function(){
+      var cell = $(this), h = cell.outerHeight();
+      cell.css({'min-height': 0}).addClass('not-done');
+      if(h > maxH) maxH = h;
+      if(i >= inRow) {
+        cells.filter('.not-done').css({'min-height': maxH}).removeClass('not-done');
+        maxH = 0;
+        i = 1;
+      } else {
+        i++;
+      }
+    });
+  });
+}).resize();
 
 $(window).on('scroll', function(){
   var top = $(window).scrollTop(), iconsBar = $('.block-icons-bar');

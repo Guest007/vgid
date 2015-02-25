@@ -1,11 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
+from showplaces.views import ShowPlacesList
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'vgid.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^showplaces/$', ShowPlacesList.as_view(), name='dostoprim'),
 
     (r'^ckeditor/', include('ckeditor.urls')),
     url(r'^admin/', include(admin.site.urls)),

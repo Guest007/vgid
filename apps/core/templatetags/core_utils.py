@@ -9,4 +9,4 @@ def side_menu(context):
     request = context['request']
     path = request.path.lower()
 
-    return True
+    return {}

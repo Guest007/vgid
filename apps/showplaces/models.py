@@ -25,6 +25,9 @@ class Place(ParentModel):
         verbose_name = u'Достопримечательность'
         verbose_name_plural = u'Достопримечательности'
 
+    def get_absolute_path(self):
+        return "/showplaces/{}".format(self.slug)
+
 
 class PlaceType(SimpleAbstract):
     """

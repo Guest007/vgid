@@ -9,4 +9,4 @@ def showplace_filter(context):
     request = context['request']
     path = request.path.lower()
 
-    return True
+    return {}
