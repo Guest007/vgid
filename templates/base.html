@@ -256,7 +256,7 @@
                 </div>
                 <div class="form-control-wrapper">
                   <input type="text" class="form-control empty" name="subject" id="edit-subject">
-                  <div class="floating-label">Тема</div>
+                  <div class="floating-label">Ваш телефон</div>
                 </div>
                 <div class="form-control-wrapper">
                   <textarea class="form-control empty" name="text" id="edit-text"></textarea>
@@ -289,7 +289,7 @@
           <h4 class="modal-title" id="orderACallModalLabel">Заказать обратный звонок</h4>
         </div>
         <div class="modal-body">
-          <form class="form-v2 ajaxify-form" action="form-test.json" method="POST" data-validate="orderACallCallback" data-submit="orderACallCallback">
+          <form class="form-v2 ajaxify-form" action="{% url 'callback' %}" method="POST" data-validate="orderACallCallback" data-submit="orderACallCallback">
             <div class="form-control-wrapper">
               <input type="text" class="form-control empty required" name="name" id="edit-call-name">
               <div class="floating-label">Ваше имя</div>
@@ -343,19 +343,19 @@
               <div class="floating-label">Еще поле</div>
               <div class="hint">Это обязательное поле</div>
             </div>
-            <div class="form-control-wrapper">
-              <input type="text" class="form-control empty" name="field_5" id="edit-exc-field-5">
-              <div class="floating-label">Еще поле</div>
-            </div>
-            <div class="form-control-wrapper">
-              <input type="text" class="form-control empty required" name="field_6" id="edit-exc-field-6">
-              <div class="floating-label">Еще поле</div>
-              <div class="hint">Это обязательное поле</div>
-            </div>
-            <div class="form-control-wrapper">
-              <input type="text" class="form-control empty" name="field_7" id="edit-exc-field-7">
-              <div class="floating-label">Еще поле</div>
-            </div>
+{#            <div class="form-control-wrapper">#}
+{#              <input type="text" class="form-control empty" name="field_5" id="edit-exc-field-5">#}
+{#              <div class="floating-label">Еще поле</div>#}
+{#            </div>#}
+{#            <div class="form-control-wrapper">#}
+{#              <input type="text" class="form-control empty required" name="field_6" id="edit-exc-field-6">#}
+{#              <div class="floating-label">Еще поле</div>#}
+{#              <div class="hint">Это обязательное поле</div>#}
+{#            </div>#}
+{#            <div class="form-control-wrapper">#}
+{#              <input type="text" class="form-control empty" name="field_7" id="edit-exc-field-7">#}
+{#              <div class="floating-label">Еще поле</div>#}
+{#            </div>#}
             <div class="text-right">
               <button type="submit" class="btn btn-primary">Заказать</button>
             </div>

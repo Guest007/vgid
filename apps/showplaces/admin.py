@@ -7,6 +7,8 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 class PlaceAdmin(AdminImageMixin, reversion.VersionAdmin):
     prepopulated_fields = {"slug": ("title",)}
+    list_display = ('title', 'is_publish', 'weight')
+    list_editable = ('is_publish', 'weight')
 
 
 class PlaceTypeAdmin(AdminImageMixin, reversion.VersionAdmin):

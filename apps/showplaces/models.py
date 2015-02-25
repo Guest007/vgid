@@ -19,6 +19,7 @@ class Place(ParentModel):
     tickets = RichTextField(_("Ticket's cost"), blank=True, default='')
     place_type = models.ForeignKey("PlaceType", blank=True, null=True)
     locality = models.ForeignKey(Locality, blank=True, null=True)
+    weight = models.IntegerField(_(u"Вес"), blank=True, null=True)
     # tours = models.ManyToManyField(Tour, blank=True, null=True)
 
     class Meta:
@@ -27,6 +28,13 @@ class Place(ParentModel):
 
     def get_absolute_path(self):
         return "/showplaces/{}".format(self.slug)
+
+    def save(self):
+      "Get last value of Weight from database, and increment before save"
+      if not self.weight:
+          top = Place.objects.order_by('-weight')[0]
+          self.weight = top.weight + 1
+      super(Place, self).save()
 
 
 class PlaceType(SimpleAbstract):
