@@ -43,6 +43,22 @@ var ajaxifyCallbacks = function () {
             errors = true;
           }
         });
+        var dreq = 0;
+        form.find('.dreq').each(function(){
+          var field = $(this);
+          if($.trim(field.val())) {
+            dreq = dreq + 1;
+          } else if(field.attr('type') == 'checkbox' && field.is(':checked')) {
+            dreq = dreq + 1;
+          }
+        });
+
+          if(dreq < 1) {
+            form.find('.dreq1').before('<div class="error-message"><i></i>Одно из полей должно быть обязательно заполнено</div>');
+            form.find('.dreq1').addClass('error');
+            form.find('.dreq').addClass('error');
+            errors = true;
+          }
         return errors;
       },
       orderExcursionCallback: function(e, form, formData) {
