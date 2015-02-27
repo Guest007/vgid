@@ -265,7 +265,7 @@ body {
     z-index: 999;
     overflow: hidden;
   }
-  .block-icons-bar.fixed .right-wrap { right: 17px; }
+  .block-icons-bar.fixed .right-wrap { right: 0; }
   .block-icons-bar.fixed .left-wrap { left: 0; }
   .block-icons-bar.fixed .right-wrap-inner,
   .block-icons-bar.fixed .left-wrap-inner {
@@ -273,6 +273,8 @@ body {
     width: 170px;
     overflow-y:scroll;
   }
+  .modal-open .block-icons-bar .right-bar { right: 17px; }
+  .modal-open .block-icons-bar.fixed .right-wrap { right: 17px; }
 }
 
 @media (max-width: 991px) {
@@ -306,6 +308,8 @@ body {
   }
   .block-icons-bar ul { position: static; left: 0; top: 0; }
   .block-icons-bar .right-bar { padding-bottom: 15px; }
+  .modal-open .block-icons-bar .right-bar { right: 17px; }
+  .modal-open .block-icons-bar.fixed .right-wrap { right: 17px; }
 }
 
 
