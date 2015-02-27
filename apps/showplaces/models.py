@@ -17,7 +17,8 @@ class Place(ParentModel):
                                    decimal_places=2, blank=True, null=True,
                                    help_text=u'Расстояние от города в км.')
     tickets = RichTextField(_("Ticket's cost"), blank=True, default='')
-    place_type = models.ForeignKey("PlaceType", blank=True, null=True)
+    # place_type = models.ForeignKey("PlaceType", blank=True, null=True)
+    place_type = models.ManyToManyField("PlaceType", blank=True, null=True)
     locality = models.ForeignKey(Locality, blank=True, null=True)
     weight = models.IntegerField(_(u"Вес"), blank=True, null=True)
     # tours = models.ManyToManyField(Tour, blank=True, null=True)

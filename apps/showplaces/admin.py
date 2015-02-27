@@ -9,6 +9,7 @@ class PlaceAdmin(AdminImageMixin, reversion.VersionAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = ('title', 'is_publish', 'weight')
     list_editable = ('is_publish', 'weight')
+    filter_horizontal = ('place_type', )
 
 
 class PlaceTypeAdmin(AdminImageMixin, reversion.VersionAdmin):
