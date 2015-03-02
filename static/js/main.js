@@ -157,7 +157,7 @@ $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
 });
 
 $(document).on('click', '.block-sights-filters .btn-filter', function(e){
-  e.preventDefault();
+  //e.preventDefault();
   var btn = $(this);
   btn.removeClass('changed');
   btn.toggleClass('active');
