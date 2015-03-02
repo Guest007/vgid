@@ -14,17 +14,17 @@ class ShowPlacesList(ListView):
         qs = super(ShowPlacesList, self).get_queryset()
         dist = self.request.GET.get('dist')
         if dist:
-            if dist == 1:
+            if dist == "1":
                 qs = qs.filter(distance__lt=1.00)
-            elif dist == 2:
-                qs = qs.filter(distance__lt=10.00)
-            elif dist == 3:
-                qs = qs.filter(distance__lt=30.00)
-            elif dist == 4:
-                qs = qs.filter(distance__lt=50.00)
-            elif dist == 5:
-                qs = qs.filter(distance__lt=100.00)
-            elif dist == 6:
+            elif dist == "2":
+                qs = qs.filter(distance__gt=1.00, distance__lt=10.01)
+            elif dist == "3":
+                qs = qs.filter(distance__gt=10.00, distance__lt=30.01)
+            elif dist == "4":
+                qs = qs.filter(distance__gt=30.00, distance__lt=50.01)
+            elif dist == "5":
+                qs = qs.filter(distance__gt=50.00, distance__lt=100.01)
+            elif dist == "6":
                 qs = qs.filter(distance__gt=100.00)
 
 
@@ -37,7 +37,7 @@ class ShowPlacesList(ListView):
 
         dist = self.request.GET.get('dist')
         if dist:
-            print dist
+            # print dist
             context['dist'] = dist
 
         # context['filters'] = f
