@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load showplace_filter from sp_filter %}
 {% load static from staticfiles %}
 {% load thumbnail %}
 
@@ -38,19 +37,19 @@
       <div role="tabpanel" class="tab-pane active" id="home">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter">Фильтр  (значение)</a></div>
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter">Фильтр (23)</a></div>
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter active">Выбранный фильтр</a></div>
+            {% for pt in p_types %}{% if forloop.counter < 3 %}
+            <div class="text-center"><a href="?pt={{ pt.pk }}" class="btn-filter {% if pt_active == "{{ forloop.counter0 }}" %}active{% endif %}">{{ pt.title }}</a></div>
+            {% endif %}{% endfor %}
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter">Фильтр  (значение)</a></div>
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter">Фильтр (23)</a></div>
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter">Фильтр (1)</a></div>
+            {% for pt in p_types %}{% if forloop.counter >= 3 and forloop.counter < 5 %}
+            <div class="text-center"><a href="?pt={{ pt.pk }}" class="btn-filter {% if pt_active == "{{ forloop.counter0 }}" %}active{% endif %}">{{ pt.title }}</a></div>
+            {% endif %}{% endfor %}
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter active">Выбранный фильтр</a></div>
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter active">Выбранный фильтр</a></div>
-            <div class="text-center"><a href="javascript:void(0)" class="btn-filter">Фильтр (1)</a></div>
+            {% for pt in p_types %}{% if forloop.counter >= 5 and forloop.counter < 7 %}
+            <div class="text-center"><a href="?pt={{ pt.pk }}" class="btn-filter {% if pt_active == "{{ forloop.counter0 }}" %}active{% endif %}">{{ pt.title }}</a></div>
+            {% endif %}{% endfor %}
           </div>
         </div>
       </div>

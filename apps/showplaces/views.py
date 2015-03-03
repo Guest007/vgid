@@ -13,6 +13,7 @@ class ShowPlacesList(ListView):
     def get_queryset(self):
         qs = super(ShowPlacesList, self).get_queryset()
         dist = self.request.GET.get('dist')
+        p_type = self.request.GET.get('pt')
         if dist:
             if dist == "1":
                 qs = qs.filter(distance__lt=1.00)
@@ -27,19 +28,21 @@ class ShowPlacesList(ListView):
             elif dist == "6":
                 qs = qs.filter(distance__gt=100.00)
 
+        if p_type:
+            qs = qs.filter(place_type=p_type)
 
-
-        # print "---> {}".format(len(qs))
         return qs
     
     def get_context_data(self, **kwargs):
         context = super(ShowPlacesList, self).get_context_data(**kwargs)
+        context['p_types'] = PlaceType.objects.all()
 
         dist = self.request.GET.get('dist')
         if dist:
-            # print dist
             context['dist'] = dist
 
-        # context['filters'] = f
+        pt = self.request.GET.get('pt')
+        if pt:
+            context['pt_active'] = pt
 
         return context
