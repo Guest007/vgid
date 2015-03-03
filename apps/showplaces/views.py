@@ -43,6 +43,6 @@ class ShowPlacesList(ListView):
 
         pt = self.request.GET.get('pt')
         if pt:
-            context['pt_active'] = pt
+            context['pt_active'] = PlaceType.objects.get(pk=pt)
 
         return context
