@@ -31,11 +31,11 @@ class Place(ParentModel):
         return "/showplaces/{}".format(self.slug)
 
     def save(self):
-      "Get last value of Weight from database, and increment before save"
-      if not self.weight:
-          top = Place.objects.order_by('-weight')[0]
-          self.weight = top.weight + 1
-      super(Place, self).save()
+        "Get last value of Weight from database, and increment before save"
+        if not self.weight:
+            top = Place.objects.order_by('-weight')[0]
+            self.weight = top.weight + 1
+        super(Place, self).save()
 
 
 class PlaceType(SimpleAbstract):

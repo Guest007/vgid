@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% if querystring %}
+    <div class="endless_container text-center margin-bottom-60">
+        <a class="endless_more btn btn-load-more-v1 btn-fab btn-raised" href="{{ path }}{{ querystring }}"
+            rel="{{ querystring_key }}">
+            <span class="mdi-av-replay"></span>
+            <span class="text">{% if label %}{{ label }}{% else %}{% trans "more" %}{% endif %}</span>
+            </a>
+        <div class="endless_loading" style="display: none;">{{ loading|safe }}</div>
+    </div>
+{% endif %}

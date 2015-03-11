@@ -1,13 +1,16 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views.generic import View, ListView, DetailView
 from .models import Place, PlaceType
+from endless_pagination.views import AjaxListView
 
 
-class ShowPlacesList(ListView):
+class ShowPlacesList(AjaxListView):
     model = Place
     queryset = Place.objects.filter(is_publish=True).order_by('weight')
-    # paginate_by = 25
+    # paginate_by = 8
     template_name = 'showplaces/place_list.html'
+    page_template = 'showplaces/place_page.html'
     default_filter_param = 'all'
 
     def get_queryset(self):
@@ -32,7 +35,7 @@ class ShowPlacesList(ListView):
             qs = qs.filter(place_type=p_type)
 
         return qs
-    
+
     def get_context_data(self, **kwargs):
         context = super(ShowPlacesList, self).get_context_data(**kwargs)
         context['p_types'] = PlaceType.objects.all()
