@@ -9,13 +9,18 @@
     </div>
 {% endblock %}
 
+{% block js %}
+    {{ block.super }}
+
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
+{% endblock %}
+
 {% block main_content %}
 
       <div class="block-sights-n-filters bg-night-blue">
       <div class="container">
         <div class="row">
-
-{#{% showplace_filter %}#}
 
 
 <div class="block-sights-filters clearfix" role="tabpanel">
@@ -147,12 +152,6 @@
 
 {% include page_template %}
 
-{% block js %}
-    {{ block.super }}
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
-    <script>$.endlessPaginate();</script>
-{% endblock %}
 <!-- END OF INFO BLOCK -->
 
           </div>

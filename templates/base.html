@@ -133,84 +133,7 @@
 <!-- START OF FOOTER -->
 
   <div class="footer">
-<!--
-    <div class="footer-menu">
-      <div class="container">
-        <div class="row margin-for-icons">
-          <div class="col-lg-10 col-lg-offset-1 col-xs-12">
-            <div class="menu-row row">
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="menu-row row">
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12 menu-block margin-top-20">
-                <h3><a href="javascript:void(0)">ЗАГОЛОВОК раздела сайта</a></h3>
-                <ul>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                  <li><a href="javascript:void(0)">Подраздел сайта</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
--->
+
     <div class="footer-social">
       <div class="container">
         <a href="javascript:void(0)" class="btn btn-raised btn-fab btn-vk"><i class="not-fontello mdi-editor-format-bold"></i></a>
@@ -365,6 +288,7 @@
     </div>
   </div>
 
+{% block js %}
 
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -378,6 +302,9 @@
         $.material.init();
       });
   </script>
+
+{% endblock js %}
+
 </body>
 
 </html>

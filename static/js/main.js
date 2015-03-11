@@ -5,7 +5,7 @@ var ajaxifyCallbacks = function () {
     submit: {
       //Default submit callback
       defaultCallback: function(e, form, data) {
-        
+
       },
       orderACallCallback: function(e, form, data) {
         form.prepend('<div class="status-message"><i class="mdi-alert-error"></i>Спасибо. Ожидайте звонка.</div>');
@@ -129,26 +129,50 @@ $.extend($.fn, {
         }
       });
     });
-    
+
     return this;
   }
-  
+
 });
 
 
 
 $(document).ready(function(){
-  
+
   $('.bxslider').bxSlider({
     onSliderLoad: function(){
       $('.bxslider li a').ripples();
     },
+    minSlides: 3,
+    maxSlides: 3,
+    onSliderLoad: function(currentIndex){
+      console.log(currentIndex);
+
+    },
+    onSlideBefore: function(slideElement, oldIndex, newIndex){
+      console.log(slideElement);
+      var elems = slideElement.parent().find('li'), cloneElem = slideElement, lastIndex = (elems.filter(':not(.bx-clone)').length - 1);
+      if(newIndex == 0 && oldIndex == lastIndex) {
+        cloneElem = elems.filter(':not(.bx-clone):eq(' + oldIndex + ')').next();
+        //console.log(cloneElem);
+      } else if(newIndex == lastIndex && oldIndex == 0) {
+        cloneElem = elems.filter(':not(.bx-clone):eq(' + oldIndex + ')').prev();
+      }
+      elems.removeClass('faded');
+      elems.not(slideElement).not(cloneElem).addClass('faded');
+      //slideElement.prev().addClass('faded');
+      //slideElement.next().addClass('faded');
+      console.log(oldIndex, newIndex);
+    },
+    onSlideAfter: function(slideElement, oldIndex, newIndex){
+      slideElement.removeClass('faded');
+    }
   });
-  
+
   $('.toggle-bars').ripples();
-  
+
   $('.ajaxify-form').ajaxifyForm();
-  
+
 });
 
 $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
@@ -157,7 +181,7 @@ $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
 });
 
 $(document).on('click', '.block-sights-filters .btn-filter', function(e){
-  //e.preventDefault();
+  e.preventDefault();
   var btn = $(this);
   btn.removeClass('changed');
   btn.toggleClass('active');
@@ -193,8 +217,6 @@ $(document).on('click', '.to-up-wrap a', function(e){
 $(window).on('resize load', function(){
   var rows = $('.block-sights-rows .sights-rows'), inRow = 4, resolutionName = $('.visible-detect div').filter(':visible').data('resolution');
   if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
-  //console.log(resolutionName);
-  //console.log(inRow);
   rows.each(function(){
     var cells = $(this).find('.sights-row'), i = 1, maxH = 0;
     cells.css({'min-height': 0});
@@ -213,12 +235,20 @@ $(window).on('resize load', function(){
   });
 }).resize();
 
-$(window).on('scroll', function(){
-  var top = $(window).scrollTop(), iconsBar = $('.block-icons-bar');
-  if(top >= 65) {
-    iconsBar.addClass('fixed');
-  } else {
-    iconsBar.find('.left-wrap-inner, .right-wrap-inner').scrollTop(0);
-    iconsBar.removeClass('fixed');
+$(window).on('resize load', function(){
+  var windowWidth = $(window).width(), slider = $('.block-slider-promo'), sliderView = slider.find('.bx-viewport'), sliderWidth = sliderView.width(),
+      tgWidth = ((windowWidth - sliderWidth)/2 + 15), controls = slider.find('.bx-controls-direction a');
+  console.log(sliderWidth);
+  if(tgWidth > 0) {
+    controls.css({width: tgWidth + 'px'});
   }
-}).scroll();
+});
+//$(window).on('scroll', function(){
+//  var top = $(window).scrollTop(), iconsBar = $('.block-icons-bar');
+//  if(top >= 65) {
+//    iconsBar.addClass('fixed');
+//  } else {
+//    iconsBar.find('.left-wrap-inner, .right-wrap-inner').scrollTop(0);
+//    iconsBar.removeClass('fixed');
+//  }
+//}).scroll();
