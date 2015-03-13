@@ -23,4 +23,6 @@ class Museum(ParentModel):
         verbose_name = u'Музей'
         verbose_name_plural = u'Музеи'
 
+    def get_absolute_path(self):
+        return "/museums/{}".format(self.slug)
 

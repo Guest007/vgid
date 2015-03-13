@@ -4,9 +4,13 @@
 {% load endless %}
 
 {% block color_line %}
-    <div class="green-bar" style="background-color: #2ecc71;">
-      <h2>Достопримечательности Выборга&nbsp;и&nbsp;окрестностей</h2>
+    <div class="green-bar" style="background-color: #F1C40F;">
+      <h2>Музеи Выборга&nbsp;и&nbsp;окрестностей</h2>
     </div>
+{% endblock %}
+
+{% block man-hand %}
+    <img src="{% static 'img/bg-excursion-hand-m.png' %}">
 {% endblock %}
 
 {% block js %}
@@ -18,14 +22,13 @@
 
 {% block main_content %}
 
-      <div class="block-sights-n-filters bg-night-blue">
+      <div class="block-sights-n-filters bg-museum">
       <div class="container">
         <div class="row">
 
 
 <div class="block-sights-filters clearfix" role="tabpanel">
   <div class="col-md-8 col-md-offset-2 col-xs-12">
-  {# <form> #}
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
@@ -76,7 +79,7 @@
         </div>
       </div>
     </div>
-  {# </form> #}
+
   </div>
 </div>
 
@@ -143,7 +146,7 @@
     {# </div> #}
 
 
-  <div class="block-sights-n-filters bg-night-blue margin-top-20">
+  <div class="block-sights-n-filters bg-museum margin-top-20">
     <div class="container">
       <div class="row">
         <div class="block-sights-rows margin-for-icons">

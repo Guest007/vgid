@@ -325,6 +325,7 @@ body {
 /* MAIN */
 
 .bg-night-blue { background-color: #34495E; }
+.bg-museum { background-color: #8D44AC; }
 .block-sights-n-filters { padding: 20px 0 0; }
 .block-sights-n-filters.padding-bottom { padding-bottom: 200px; }
 /* .block-sights-filters { margin-top: -65px; padding-bottom: 40px; } */

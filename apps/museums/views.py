@@ -7,7 +7,8 @@ from endless_pagination.views import AjaxListView
 
 class MuseumsList(AjaxListView):
     model = Museum
-    queryset = Museum.objects.filter(is_publish=True)#.order_by('weight')
+    # queryset = Museum.objects.filter(is_publish=True)#.order_by('weight')
+    queryset = Museum.objects.all()
     # paginate_by = 8
     template_name = 'museums/museums_list.html'
     page_template = 'museums/museums_page.html'
