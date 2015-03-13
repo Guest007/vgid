@@ -53,3 +53,8 @@ class ShowPlacesList(AjaxListView):
                 context['pt_active'] = PlaceType.objects.get(pk=pt)
 
         return context
+
+
+class ShowPlacesDetail(DetailView):
+    model = Place
+    template_name = 'showplaces/place_detail.html'
