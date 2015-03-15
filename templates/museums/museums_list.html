@@ -4,7 +4,7 @@
 {% load endless %}
 
 {% block color_line %}
-    <div class="green-bar" style="background-color: #F1C40F;">
+    <div class="green-bar" style="background-color: #9B59B6;">
       <h2>Музеи Выборга&nbsp;и&nbsp;окрестностей</h2>
     </div>
 {% endblock %}
@@ -32,11 +32,11 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
-        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-photo"></a>
+        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-photo" style="background-color: #9B59B6 !important;"></a>
         <div>Тип</div>
       </li>
       <li role="presentation">
-        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-ruller"></a>
+        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-ruller" style="background-color: #9B59B6 !important;"></a>
         <div>Удаленность</div>
       </li>
     </ul>
@@ -47,17 +47,17 @@
         <div class="row">
           <div class="col-sm-4 col-xs-12">
             {% for pt in p_types %}{% if forloop.counter < 3 %}
-            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
+            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter btn-m-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
             {% endif %}{% endfor %}
           </div>
           <div class="col-sm-4 col-xs-12">
             {% for pt in p_types %}{% if forloop.counter >= 3 and forloop.counter < 5 %}
-            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
+            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter btn-m-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
             {% endif %}{% endfor %}
           </div>
           <div class="col-sm-4 col-xs-12">
             {% for pt in p_types %}{% if forloop.counter >= 5 and forloop.counter < 7 %}
-            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
+            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filte btn-m-filterr {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
             {% endif %}{% endfor %}
           </div>
         </div>
@@ -65,16 +65,16 @@
       <div role="tabpanel" class="tab-pane" id="profile">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" %}active{% endif %}">Город</a></div>
-            <div class="text-center"><a href="?dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" %}active{% endif %}">&lt;10км.</a></div>
+            <div class="text-center"><a href="?dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter btn-m-filter {% if dist == "1" %}active{% endif %}">Город</a></div>
+            <div class="text-center"><a href="?dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter btn-m-filter {% if dist == "2" %}active{% endif %}">&lt;10км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" %}active{% endif %}">10-30км.</a></div>
-            <div class="text-center"><a href="?dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" %}active{% endif %}">30-50км.</a></div>
+            <div class="text-center"><a href="?dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter btn-m-filter {% if dist == "3" %}active{% endif %}">10-30км.</a></div>
+            <div class="text-center"><a href="?dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter btn-m-filter {% if dist == "4" %}active{% endif %}">30-50км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" %}active{% endif %}">50-100км.</a></div>
-            <div class="text-center"><a href="?dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" %}active{% endif %}">&gt;100км.</a></div>
+            <div class="text-center"><a href="?dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter btn-m-filter {% if dist == "5" %}active{% endif %}">50-100км.</a></div>
+            <div class="text-center"><a href="?dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter btn-m-filter {% if dist == "6" %}active{% endif %}">&gt;100км.</a></div>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@
            {% if forloop.counter0 < 4 %}
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="sights-row btn btn-raised" href="{{ obj.get_absolute_path }}">
-                <span class="label label-default label-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+                <span class="label label-default label-m-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
 
                 <h3>{{ obj.title }}</h3>
 
