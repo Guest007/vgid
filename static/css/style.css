@@ -344,6 +344,9 @@ body {
   position: relative;
   margin-bottom: 0;
 }
+.nt-m {
+    color: #9B59B6;
+}
 .block-sights-filters .nav-tabs li .btn-fab {
   width: 87px;
   height: 87px;
@@ -419,6 +422,7 @@ body {
  }
 .block-sights-filters .btn-m-filter.active {
     background: #9B59B6;
+    color: #FFF;
 }
 .block-sights-filters .btn-filter.changed {
   -webkit-animation: 0.3s ease 0s normal none 1 filter-nonactive-changed;
