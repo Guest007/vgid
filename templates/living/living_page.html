@@ -1,0 +1,33 @@
+{% load endless %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% paginate 8 object_list %}
+
+   {% for obj in object_list %}
+     {% if forloop.counter0 >= 4 %}
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a class="sights-row btn btn-raised" href="{{ obj.get_absolute_path }}">
+          <span class="label label-default label-m-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+
+          <h3>{{ obj.title }}</h3>
+
+          <div class="img text-center margin-top-15">
+            {% thumbnail obj.image "180x180" crop="center" as im %}
+              <img src="{{ obj.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% empty %}
+              <img src="{% static 'img/img-city-teaser-1.jpg' %}">
+            {% endthumbnail %}
+          </div>
+          <div class="text margin-top-15">
+            {{ obj.description|striptags|safe|truncatewords:20 }}
+          </div>
+        </a>
+      </div>
+     {% endif %}
+   {% endfor %}
+<script>$(window).trigger('resize');</script>
+{% show_more "Показать ещё" %}
+
+
+

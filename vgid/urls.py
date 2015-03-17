@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from showplaces.views import ShowPlacesList, ShowPlacesDetail
 from museums.views import MuseumsList, MuseumsDetail
+from living.views import LivingList, LivingDetail
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,6 +14,9 @@ urlpatterns = patterns('',
 
     url(r'^museums/$', MuseumsList.as_view(), name='museums'),
     url(r'^museums/(?P<slug>[-\w]+)/$', MuseumsDetail.as_view(), name='museum'),
+
+    url(r'^living/$', LivingList.as_view(), name='living'),
+    url(r'^living/(?P<slug>[-\w]+)/$', LivingDetail.as_view(), name='live'),
 
 
 
