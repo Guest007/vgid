@@ -35,8 +35,10 @@
 
     <!-- CSS Customization -->
   <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}">
+  <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
   <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 </head>
 
 <body>
@@ -175,15 +177,15 @@
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
               <form class="form-v1" action="{% url 'feedback' %}" method="GET">
                 <div class="form-control-wrapper">
-                  <input type="text" class="form-control  empty" name="name" id="edit-name">
+                  <input type="text" class="form-control empty required" name="name" id="edit-name">
                   <div class="floating-label">Ваше имя</div>
                 </div>
                 <div class="form-control-wrapper">
-                  <input type="email" class="form-control empty" name="mail" id="edit-mail">
+                  <input type="email" class="form-control empty required-one" name="mail" id="edit-mail">
                   <div class="floating-label">Ваш e-mail</div>
                 </div>
                 <div class="form-control-wrapper">
-                  <input type="text" class="form-control empty" name="subject" id="edit-subject">
+                  <input type="text" class="form-control empty required-one" name="subject" id="edit-subject">
                   <div class="floating-label">Ваш телефон</div>
                 </div>
                 <div class="form-control-wrapper">
@@ -224,12 +226,12 @@
 {#              <div class="hint">Это обязательное поле</div>#}
             </div>
             <div class="form-control-wrapper">
-              <input type="text" class="form-control empty dreq dreq1" name="phone" id="edit-call-phone">
+              <input type="text" class="form-control empty required-one" name="phone" id="edit-call-phone">
               <div class="floating-label">Ваш телефон</div>
 {#              <div class="hint">Это обязательное поле</div>#}
             </div>
             <div class="form-control-wrapper">
-              <input type="email" class="form-control empty dreq" name="mail" id="edit-call-mail">
+              <input type="email" class="form-control empty required-one" name="mail" id="edit-call-mail">
               <div class="floating-label">Ваш e-mail</div>
 {#              <div class="hint">Это обязательное поле</div>#}
             </div>
@@ -258,12 +260,12 @@
 {#              <div class="hint">Это обязательное поле</div>#}
             </div>
             <div class="form-control-wrapper">
-              <input type="text" class="form-control empty required" name="phone" id="edit-exc-phone">
+              <input type="text" class="form-control empty required-one" name="phone" id="edit-exc-phone">
               <div class="floating-label">Ваш телефон</div>
 {#              <div class="hint">Это обязательное поле</div>#}
             </div>
             <div class="form-control-wrapper">
-              <input type="email" class="form-control empty required" name="mail" id="edit-exc-mail">
+              <input type="email" class="form-control empty required-one" name="mail" id="edit-exc-mail">
               <div class="floating-label">Ваш e-mail</div>
 {#              <div class="hint">Это обязательное поле</div>#}
             </div>
@@ -300,6 +302,7 @@
   <script src="{% static 'bootstrap-md/dist/js/ripples.min.js' %}"></script>
   <script src="{% static 'bootstrap-md/dist/js/material.min.js' %}"></script>
   <script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+  <script src="{% static 'js/datepicker.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
   <script>
       $(document).ready(function() {

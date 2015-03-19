@@ -5,7 +5,7 @@ var ajaxifyCallbacks = function () {
     submit: {
       //Default submit callback
       defaultCallback: function(e, form, data) {
-
+        
       },
       orderACallCallback: function(e, form, data) {
         form.prepend('<div class="status-message"><i class="mdi-alert-error"></i>Спасибо. Ожидайте звонка.</div>');
@@ -29,7 +29,7 @@ var ajaxifyCallbacks = function () {
         return false;
       },
       orderACallCallback: function(e, form, formData) {
-        var errors = false;
+        var errors = false, reqOnceErrors = false;
         form.find('.error').removeClass('error');
         form.find('.error-message').remove();
         form.find('.required').each(function(){
@@ -43,22 +43,19 @@ var ajaxifyCallbacks = function () {
             errors = true;
           }
         });
-        var dreq = 0;
-        form.find('.dreq').each(function(){
+        var reqOneFields = form.find('.required-one');
+        if(reqOneFields.length) { reqOnceErrors = true; }
+        reqOneFields.each(function(){
           var field = $(this);
           if($.trim(field.val())) {
-            dreq = dreq + 1;
-          } else if(field.attr('type') == 'checkbox' && field.is(':checked')) {
-            dreq = dreq + 1;
+            reqOnceErrors = false;
           }
         });
-
-          if(dreq < 1) {
-            form.find('.dreq1').before('<div class="error-message"><i></i>Одно из полей должно быть обязательно заполнено</div>');
-            form.find('.dreq1').addClass('error');
-            form.find('.dreq').addClass('error');
-            errors = true;
-          }
+        if(reqOnceErrors) {
+          errors = true;
+          reqOneFields.addClass('error');
+          reqOneFields.filter(':last').before('<div class="error-message"><i class="fontello icon-up-bold"></i>Одно из полей должно быть обязательно заполнено</div>');
+        }
         return errors;
       },
       orderExcursionCallback: function(e, form, formData) {
@@ -129,50 +126,106 @@ $.extend($.fn, {
         }
       });
     });
-
+    
     return this;
   }
-
+  
 });
 
 
 
 $(document).ready(function(){
-
+  
   $('.bxslider').bxSlider({
     onSliderLoad: function(){
       $('.bxslider li a').ripples();
     },
+    auto: true,
     minSlides: 3,
     maxSlides: 3,
+    adaptiveHeight: true,
     onSliderLoad: function(currentIndex){
-      console.log(currentIndex);
-
+      //console.log(currentIndex);
     },
     onSlideBefore: function(slideElement, oldIndex, newIndex){
-      console.log(slideElement);
+      //console.log(slideElement);
       var elems = slideElement.parent().find('li'), cloneElem = slideElement, lastIndex = (elems.filter(':not(.bx-clone)').length - 1);
       if(newIndex == 0 && oldIndex == lastIndex) {
         cloneElem = elems.filter(':not(.bx-clone):eq(' + oldIndex + ')').next();
-        //console.log(cloneElem);
       } else if(newIndex == lastIndex && oldIndex == 0) {
         cloneElem = elems.filter(':not(.bx-clone):eq(' + oldIndex + ')').prev();
       }
       elems.removeClass('faded');
       elems.not(slideElement).not(cloneElem).addClass('faded');
-      //slideElement.prev().addClass('faded');
-      //slideElement.next().addClass('faded');
-      console.log(oldIndex, newIndex);
     },
     onSlideAfter: function(slideElement, oldIndex, newIndex){
       slideElement.removeClass('faded');
     }
   });
-
-  $('.toggle-bars').ripples();
-
+  
+  var datePickElem = $('.block-events #date-filter');
+  if(datePickElem) {
+    
+    datePickElem.each(function(){
+      var loc = {
+        days: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+        daysShort: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        daysMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        months: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+        monthsShort:  ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+        weekMin:  'нд'
+      };
+      var form = datePickElem.parents('form:first'), fromField = form.find('.date_from'), toField = form.find('.date_to'), d = new Date(),
+          fromDate = fromField.val() ? fromField.val() : '', toDate = toField.val() ? toField.val() : '';
+      if (d.getMonth() == 11) {
+          var current = new Date(d.getFullYear() + 1, 0, 1);
+      } else {
+          var current = new Date(d.getFullYear(), d.getMonth() + 1, 1);
+      }
+      datePickElem.DatePicker({
+        flat: true,
+        format: 'Y-m-d',
+        date: [fromDate,toDate],
+        current: current,
+        calendars: 2,
+        mode: 'range',
+        starts: 1,
+        locale: loc,
+        onChange: function(formated, dates){
+          var datesArr = formated.splice(',');
+          fromField.val(datesArr[0]);
+          toField.val(datesArr[1]);
+          //if ($('#closeOnSelect input').attr('checked')) {
+          //  $('#inputDate').DatePickerHide();
+          //}
+        }
+      });
+    });
+  }
+  var eventsBlock = $('.block-events-filters');
+  if(eventsBlock.length) {
+    var eventsFiltersForm = eventsBlock.find('form'), eventsFilterTypeSel = eventsFiltersForm.find('.filter-type-select'), eventsFilterTypeBtns = eventsBlock.find('.filters li a');
+    $('.block-events-filters .filters li a').click(function(e){
+      e.preventDefault();
+      var btn = $(this), btns = btn.parents('ul').find('[data-typeval]'), val = btn.data('typeval');
+      if(btn.parent().hasClass('active')) {
+        btns.parent().removeClass('active');
+        eventsFilterTypeSel.val('').change();
+      } else {
+        btns.not(btn).parent().removeClass('active');
+        eventsFilterTypeSel.val(val).change();
+        btn.parent().addClass('active');
+      }
+    });
+    if(eventsFilterTypeSel.val()) {
+      eventsFilterTypeBtns.filter('[data-typeval="' + eventsFilterTypeSel.val() + '"]').parent().addClass('active');
+    }
+  }
+  
+  $('.ripple-me, .toggle-bars').ripples();
+  
   $('.ajaxify-form').ajaxifyForm();
-
+  
 });
 
 $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
@@ -181,7 +234,7 @@ $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
 });
 
 $(document).on('click', '.block-sights-filters .btn-filter', function(e){
-  // e.preventDefault();
+  e.preventDefault();
   var btn = $(this);
   btn.removeClass('changed');
   btn.toggleClass('active');
@@ -238,17 +291,7 @@ $(window).on('resize load', function(){
 $(window).on('resize load', function(){
   var windowWidth = $(window).width(), slider = $('.block-slider-promo'), sliderView = slider.find('.bx-viewport'), sliderWidth = sliderView.width(),
       tgWidth = ((windowWidth - sliderWidth)/2 + 15), controls = slider.find('.bx-controls-direction a');
-  console.log(sliderWidth);
   if(tgWidth > 0) {
     controls.css({width: tgWidth + 'px'});
   }
 });
-//$(window).on('scroll', function(){
-//  var top = $(window).scrollTop(), iconsBar = $('.block-icons-bar');
-//  if(top >= 65) {
-//    iconsBar.addClass('fixed');
-//  } else {
-//    iconsBar.find('.left-wrap-inner, .right-wrap-inner').scrollTop(0);
-//    iconsBar.removeClass('fixed');
-//  }
-//}).scroll();
