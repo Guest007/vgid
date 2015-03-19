@@ -253,7 +253,7 @@
           <h4 class="modal-title" id="orderExcursionModalLabel">Заказать экскурсию</h4>
         </div>
         <div class="modal-body">
-          <form class="form-v2 ajaxify-form" action="{% url 'excurs' %}" method="POST" data-validate="orderExcursionCallback" data-submit="orderExcursionCallback">
+          <form class="form-v2 ajaxify-form" action="{% url 'excurs' %}" method="POST" data-validate="orderACallCallback" data-submit="orderExcursionCallback">
             <div class="form-control-wrapper">
               <input type="text" class="form-control empty required" name="name" id="edit-exc-name">
               <div class="floating-label">Ваше имя</div>
