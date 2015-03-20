@@ -31,15 +31,15 @@
   <div class="col-md-8 col-md-offset-2 col-xs-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active">
+      <li role="presentation" {% if type_active == 'inn' %}class="active"{% endif %}>
         <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-inn"></a>
         <div class="nt-l">Гостиницы и хостелы</div>
       </li>
-      <li role="presentation">
+      <li role="presentation" {% if type_active == 'ctg' %}class="active"{% endif %}>
         <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-cottage"></a>
         <div class="nt-l">Базы отдыха и коттеджи</div>
       </li>
-      <li role="presentation">
+      <li role="presentation" {% if type_active == 'app' %}class="active"{% endif %}>
         <a href="#appartaments" aria-controls="apartaments" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-appart"></a>
         <div class="nt-l">Апартаменты</div>
       </li>
@@ -47,54 +47,51 @@
 
     <!-- Tab panes -->
     <div class="tab-content margin-top-10">
-      <div role="tabpanel" class="tab-pane active" id="home">
+      <div role="tabpanel" class="tab-pane {% if type_active == 'inn' %}active{% endif %}" id="home">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
-            {% for pt in p_types %}{% if forloop.counter < 3 %}
-            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
-            {% endif %}{% endfor %}
+            <div class="text-center"><a href="?type=inn&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'inn' %}active{% endif %}">Город</a></div>
+            <div class="text-center"><a href="?type=inn&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'inn' %}active{% endif %}">&lt;10км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            {% for pt in p_types %}{% if forloop.counter >= 3 and forloop.counter < 5 %}
-            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
-            {% endif %}{% endfor %}
+            <div class="text-center"><a href="?type=inn&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'inn' %}active{% endif %}">10-30км.</a></div>
+            <div class="text-center"><a href="?type=inn&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'inn' %}active{% endif %}">30-50км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            {% for pt in p_types %}{% if forloop.counter >= 5 and forloop.counter < 7 %}
-            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filte  {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
-            {% endif %}{% endfor %}
+            <div class="text-center"><a href="?type=inn&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'inn' %}active{% endif %}">50-100км.</a></div>
+            <div class="text-center"><a href="?type=inn&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'inn' %}active{% endif %}">&gt;100км.</a></div>
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="profile">
+      <div role="tabpanel" class="tab-pane {% if type_active == 'ctg' %}active{% endif %}" id="profile">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" %}active{% endif %}"><span class="nt-l">Город</span></a></div>
-            <div class="text-center"><a href="?dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" %}active{% endif %}"><span class="nt-l">&lt;10км.</span></a></div>
+            <div class="text-center"><a href="?type=ctg&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'ctg' %}active{% endif %}">Город</a></div>
+            <div class="text-center"><a href="?type=ctg&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'ctg' %}active{% endif %}">&lt;10км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" %}active{% endif %}"><span class="nt-l">10-30км.</span></a></div>
-            <div class="text-center"><a href="?dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" %}active{% endif %}"><span class="nt-l">30-50км.</span></a></div>
+            <div class="text-center"><a href="?type=ctg&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'ctg' %}active{% endif %}">10-30км.</a></div>
+            <div class="text-center"><a href="?type=ctg&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'ctg' %}active{% endif %}">30-50км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" %}active{% endif %}"><span class="nt-l">50-100км.</span></a></div>
-            <div class="text-center"><a href="?dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" %}active{% endif %}"><span class="nt-l">&gt;100км.</span></a></div>
+            <div class="text-center"><a href="?type=ctg&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'ctg' %}active{% endif %}">50-100км.</a></div>
+            <div class="text-center"><a href="?type=ctg&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'ctg' %}active{% endif %}">&gt;100км.</a></div>
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="apartaments">
+      <div role="tabpanel" class="tab-pane {% if type_active == 'app' %}active{% endif %}" id="apartaments">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" %}active{% endif %}"><span class="nt-l">Город</span></a></div>
-            <div class="text-center"><a href="?dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" %}active{% endif %}"><span class="nt-l">&lt;10км.</span></a></div>
+            <div class="text-center"><a href="?type=app&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'app' %}active{% endif %}">Город</a></div>
+            <div class="text-center"><a href="?type=app&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'app' %}active{% endif %}">&lt;10км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" %}active{% endif %}"><span class="nt-l">10-30км.</span></a></div>
-            <div class="text-center"><a href="?dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" %}active{% endif %}"><span class="nt-l">30-50км.</span></a></div>
+            <div class="text-center"><a href="?type=app&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'app' %}active{% endif %}">10-30км.</a></div>
+            <div class="text-center"><a href="?type=app&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'app' %}active{% endif %}">30-50км.</a></div>
           </div>
           <div class="col-sm-4 col-xs-12">
-            <div class="text-center"><a href="?dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" %}active{% endif %}"><span class="nt-l">50-100км.</span></a></div>
-            <div class="text-center"><a href="?dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" %}active{% endif %}"><span class="nt-l">&gt;100км.</span></a></div>
+            <div class="text-center"><a href="?type=app&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'app' %}active{% endif %}">50-100км.</a></div>
+            <div class="text-center"><a href="?type=app&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'app' %}active{% endif %}">&gt;100км.</a></div>
           </div>
         </div>
       </div>

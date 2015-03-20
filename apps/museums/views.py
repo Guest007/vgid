@@ -16,7 +16,7 @@ class MuseumsList(AjaxListView):
 
     def get_queryset(self):
         qs = super(MuseumsList, self).get_queryset()
-        # dist = self.request.GET.get('dist')
+        dist = self.request.GET.get('dist')
         # p_type = self.request.GET.get('pt')
         # if dist:
         #     if '-' not in dist:
