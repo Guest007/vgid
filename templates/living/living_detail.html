@@ -4,7 +4,7 @@
 {% load endless %}
 
 {% block color_line %}
-    <div class="green-bar" style="background-color: #2ecc71;">
+    <div class="green-bar" style="background-color: #3498D8;">
       <h2>{{ object.title }}</h2>
     </div>
 {% endblock %}
@@ -12,19 +12,19 @@
 
 {% block main_content %}
 
-      <div class="block-sights-n-filters bg-night-blue">
+      <div class="block-living-n-filters bg-living">
       <div class="container">
         <div class="row">
 
 
-          <div class="block-sights-rows margin-for-icons">
+          <div class="block-living-rows margin-for-icons">
 <!-- START OF INFO ROW -->
-            <div class="sights-rows clearfix">
+            <div class="living-rows clearfix">
 
 <!-- START OF INFO BLOCK (4 in line) -->
 
             <div class="col-md-12 col-sm-12 col-xs-12">
-              <a class="sights-row btn btn-raised" href="{{ object.get_absolute_path }}">
+              <a class="living-row btn btn-raised" href="{{ object.get_absolute_path }}">
                 <span class="label label-default label-m-place">{% if object.distance > 1 %}{{ object.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
 
 

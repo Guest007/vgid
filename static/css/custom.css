@@ -1,5 +1,3 @@
-.bg-museum { background-color: #F1C40F; }
-
 
 /*
 .block-sight s-filters .btn-s-filter:hover {
@@ -35,7 +33,7 @@
 */
 
 
-
+.bg-museum { background-color: #F1C40F; }
 .block-museum-n-filters { padding: 20px 0 0; }
 .block-museum-n-filters.padding-bottom { padding-bottom: 200px; }
 /* .block-museum-filters { margin-top: -65px; padding-bottom: 40px; } */
@@ -204,6 +202,7 @@
 ######## ####    ###    #### ##    ##  ######
 */
 
+.bg-living { background-color: #ECF0F1; }
 .block-living-filters .nav-tabs li .btn-fab.btn-ico-inn {
     background-position: -4px -1280px;
     background-color: #3498D8 !important;
@@ -221,7 +220,7 @@
 .block-living-n-filters.padding-bottom { padding-bottom: 200px; }
 /* .block-living-filters { margin-top: -65px; padding-bottom: 40px; } */
 .block-living-filters { margin-top: 0; padding-bottom: 40px; }
-.block-living-filters .nav-tabs { background: none; text-align: center; border-bottom: 1px solid #9B59B6; }
+.block-living-filters .nav-tabs { background: none; text-align: center; border-bottom: 1px solid #3498D8; }
 .block-living-filters .nav-tabs li {
   float: none;
   display: inline-block;
@@ -244,9 +243,9 @@
   display: inline-block;
   margin-bottom: 15px;
 }
-.block-living-filters .nav-tabs li .btn-fab.btn-ico-photo { background-position: -2px -801px; }
+/*.block-living-filters .nav-tabs li .btn-fab.btn-ico-photo { background-position: -2px -801px; }
 .block-living-filters .nav-tabs li .btn-fab.btn-ico-ruller { background-position: -1px -880px; }
-
+*/
 .block-living-filters .nav-tabs li.active:before {
   position: absolute;
   bottom: -1px;
@@ -255,7 +254,7 @@
   width: 0;
   height: 0;
   content: "";
-  border-bottom: 25px solid #9B59B6;
+  border-bottom: 25px solid #3498D8;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   margin-left: -28px;
@@ -268,7 +267,7 @@
   width: 0;
   height: 0;
   content: "";
-  border-bottom: 25px solid #F1C40F;
+  border-bottom: 25px solid #ECF0F1;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   margin-left: -28px;
@@ -298,11 +297,11 @@
   -webkit-transform: scale(1);
 }
 .block-living-filters .btn-filter:hover {
-  background:  rgba(155,89,182,0.4);
+  background:  rgba(52,152,216,0.4);
 }
 .block-living-filters .btn-filter.active {
-  background: #9B59B6;
-  color: #FFF;
+  background: #3498D8;
+  /*color: #FFF;*/
 }
 .block-living-filters .btn-filter.changed {
   -webkit-animation: 0.3s ease 0s normal none 1 filter-nonactive-changed;
@@ -357,7 +356,7 @@
   background: #fff;
   border-radius: 10px;
   padding: 0 30px;
-  color: #9B59B6;
+  color: #3498D8;
   font-size: 13px;
   font-weight: normal;
 }

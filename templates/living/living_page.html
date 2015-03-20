@@ -7,8 +7,8 @@
    {% for obj in object_list %}
      {% if forloop.counter0 >= 4 %}
       <div class="col-md-3 col-sm-6 col-xs-12">
-        <a class="sights-row btn btn-raised" href="{{ obj.get_absolute_path }}">
-          <span class="label label-default label-m-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+        <a class="living-row btn btn-raised" href="{{ obj.get_absolute_path }}">
+          <span class="label label-default">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
 
           <h3>{{ obj.title }}</h3>
 
