@@ -4,6 +4,7 @@ from django.conf import settings
 from showplaces.views import ShowPlacesList, ShowPlacesDetail
 from museums.views import MuseumsList, MuseumsDetail
 from living.views import LivingList, LivingDetail
+from catering.views import FoodList, FoodDetail
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,6 +18,9 @@ urlpatterns = patterns('',
 
     url(r'^living/$', LivingList.as_view(), name='living'),
     url(r'^living/(?P<slug>[-\w]+)/$', LivingDetail.as_view(), name='live'),
+
+    url(r'^catering/$', FoodList.as_view(), name='foods'),
+    url(r'^catering/(?P<slug>[-\w]+)/$', FoodDetail.as_view(), name='food'),
 
 
 

@@ -4,13 +4,13 @@
 {% load endless %}
 
 {% block color_line %}
-    <div class="green-bar" style="background-color: #3498D8;">
+    <div class="green-bar" style="background-color: #E74C3C;">
       <h2>Базы отдыха и коттеджи</h2>
     </div>
 {% endblock %}
 
 {% block man-hand %}
-    <img src="{% static 'img/man-living.png' %}">
+    <img src="{% static 'img/man-food.png' %}">
 {% endblock %}
 
 {% block js %}
@@ -22,26 +22,26 @@
 
 {% block main_content %}
 
-      <div class="block-living-n-filters bg-living">
+      <div class="block-food-n-filters bg-food">
       <div class="container">
         <div class="row">
 
 
-<div class="block-living-filters clearfix" role="tabpanel">
+<div class="block-food-filters clearfix" role="tabpanel">
   <div class="col-md-8 col-md-offset-2 col-xs-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" {% if type_active == 'inn' %}class="active"{% endif %}>
         <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-inn"></a>
-        <div class="nt-l">Гостиницы и хостелы</div>
+        <div class="nt-c">Гостиницы и хостелы</div>
       </li>
       <li role="presentation" {% if type_active == 'ctg' %}class="active"{% endif %}>
         <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-cottage"></a>
-        <div class="nt-l">Базы отдыха и коттеджи</div>
+        <div class="nt-c">Базы отдыха и коттеджи</div>
       </li>
       <li role="presentation" {% if type_active == 'app' %}class="active"{% endif %}>
         <a href="#appartaments" aria-controls="apartaments" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-appart"></a>
-        <div class="nt-l">Апартаменты</div>
+        <div class="nt-c">Апартаменты</div>
       </li>
     </ul>
 
@@ -104,17 +104,17 @@
 
 
 
-          <div class="block-living-rows margin-for-icons">
+          <div class="block-food-rows margin-for-icons">
 <!-- START OF INFO ROW -->
-            <div class="living-rows clearfix">
+            <div class="food-rows clearfix">
 
 <!-- START OF INFO BLOCK (4 in line) -->
 
          {% for obj in object_list %}
            {% if forloop.counter0 < 4 %}
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="living-row btn btn-raised" href="{{ obj.get_absolute_path }}">
-                <span class="label label-default label-m-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+              <a class="food-row btn btn-raised" href="{{ obj.get_absolute_path }}">
+                <span class="label label-default label-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
 
                 <h3>{{ obj.title }}</h3>
 
@@ -163,12 +163,12 @@
     {# </div> #}
 
 
-  <div class="block-living-n-filters bg-living margin-top-20">
+  <div class="block-food-n-filters bg-food margin-top-20">
     <div class="container">
       <div class="row">
-        <div class="block-living-rows margin-for-icons">
+        <div class="block-food-rows margin-for-icons">
 <!-- START OF INFO ROW -->
-          <div class="living-rows clearfix endless_page_template">
+          <div class="food-rows clearfix endless_page_template">
 <!-- START OF INFO BLOCK (4 in line) -->
 
 {% include page_template %}

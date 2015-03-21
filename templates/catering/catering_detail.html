@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+{% load endless %}
+
+{% block color_line %}
+    <div class="green-bar" style="background-color: #E74C3C;">
+      <h2>{{ object.title }}</h2>
+    </div>
+{% endblock %}
+
+
+{% block main_content %}
+
+      <div class="block-catering-n-filters bg-catering">
+      <div class="container">
+        <div class="row">
+
+
+          <div class="block-catering-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+            <div class="catering-rows clearfix">
+
+<!-- START OF INFO BLOCK (4 in line) -->
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <a class="catering-row btn btn-raised" href="{{ object.get_absolute_path }}">
+                <span class="label label-default label-m-place">{% if object.distance > 1 %}{{ object.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+
+
+                <div class="img text-center margin-top-15">
+                  {% thumbnail object.image "180x180" crop="center" as im %}
+                    <img src="{{ object.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                  {% empty %}
+                    <img src="{% static 'img/img-city-teaser-1.jpg' %}">
+                  {% endthumbnail %}
+                </div>
+                <div class="text margin-top-15">
+                  {{ object.description|striptags|safe }}
+                  {{ object.text|safe }}
+                </div>
+
+              </a>
+            </div>
+
+
+<!-- END OF INFO BLOCK -->
+
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!-- END OF INFO BLOCK -->
+
+          </div>
+<!-- END OF INFO ROW -->
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
