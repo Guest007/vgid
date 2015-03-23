@@ -7,7 +7,7 @@ from endless_pagination.views import AjaxListView
 
 class FoodList(AjaxListView):
     model = Catering
-    # queryset = Living.objects.filter(is_publish=True)#.order_by('weight')
+    # queryset = Catering.objects.filter(is_publish=True)#.order_by('weight')
     queryset = Catering.objects.all()
     # paginate_by = 8
     template_name = 'catering/catering_list.html'
@@ -32,6 +32,8 @@ class FoodList(AjaxListView):
                     qs = qs.filter(distance__gt=50.00, distance__lt=100.01)
                 elif dist == "6":
                     qs = qs.filter(distance__gt=100.00)
+                else:
+                    qs = qs
 
         # if p_type:
         #     qs = qs.filter(type_of_catering__slug=p_type)  # FIXME: must be changed for real type!!!
@@ -47,8 +49,8 @@ class FoodList(AjaxListView):
             if '-' not in dist:
                 context['dist'] = dist
 
-        # pt = self.request.GET.get('type', None)
-        # context['type_active'] = pt if pt else 'inn'
+        pt = self.request.GET.get('type', None)
+        context['type_active'] = pt if pt else 'one'
 
         return context
 

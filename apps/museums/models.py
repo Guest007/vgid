@@ -18,6 +18,9 @@ class Museum(ParentModel):
                                default='')
     tickets = RichTextField(_("Ticket's cost"), blank=True, default='')
     events = models.ManyToManyField(Event, blank=True, null=True)
+    distance = models.DecimalField(u'Расстояние', max_digits=5,
+                                   decimal_places=2, blank=True, null=True,
+                                   help_text=u'Расстояние от города в км.')
 
     class Meta:
         verbose_name = u'Музей'

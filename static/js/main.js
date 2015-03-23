@@ -5,7 +5,7 @@ var ajaxifyCallbacks = function () {
     submit: {
       //Default submit callback
       defaultCallback: function(e, form, data) {
-        
+
       },
       orderACallCallback: function(e, form, data) {
         form.prepend('<div class="status-message"><i class="mdi-alert-error"></i>Спасибо. Ожидайте звонка.</div>');
@@ -126,16 +126,16 @@ $.extend($.fn, {
         }
       });
     });
-    
+
     return this;
   }
-  
+
 });
 
 
 
 $(document).ready(function(){
-  
+
   $('.bxslider').bxSlider({
     onSliderLoad: function(){
       $('.bxslider li a').ripples();
@@ -162,10 +162,10 @@ $(document).ready(function(){
       slideElement.removeClass('faded');
     }
   });
-  
+
   var datePickElem = $('.block-events #date-filter');
   if(datePickElem) {
-    
+
     datePickElem.each(function(){
       var loc = {
         days: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
@@ -221,11 +221,11 @@ $(document).ready(function(){
       eventsFilterTypeBtns.filter('[data-typeval="' + eventsFilterTypeSel.val() + '"]').parent().addClass('active');
     }
   }
-  
+
   $('.ripple-me, .toggle-bars').ripples();
-  
+
   $('.ajaxify-form').ajaxifyForm();
-  
+
 });
 
 $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
@@ -272,6 +272,27 @@ $(window).on('resize load', function(){
   if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
   rows.each(function(){
     var cells = $(this).find('.sights-row'), i = 1, maxH = 0;
+    cells.css({'min-height': 0});
+    cells.each(function(){
+      var cell = $(this), h = cell.outerHeight();
+      cell.css({'min-height': 0}).addClass('not-done');
+      if(h > maxH) maxH = h;
+      if(i >= inRow) {
+        cells.filter('.not-done').css({'min-height': maxH}).removeClass('not-done');
+        maxH = 0;
+        i = 1;
+      } else {
+        i++;
+      }
+    });
+  });
+}).resize();
+
+$(window).on('resize load', function(){
+  var rows = $('.block-food-rows .food-rows'), inRow = 4, resolutionName = $('.visible-detect div').filter(':visible').data('resolution');
+  if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
+  rows.each(function(){
+    var cells = $(this).find('.food-row'), i = 1, maxH = 0;
     cells.css({'min-height': 0});
     cells.each(function(){
       var cell = $(this), h = cell.outerHeight();

@@ -22,6 +22,9 @@ class Catering(ParentModel):
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True,
                        null=True)
     address = models.CharField(u'Адрес', max_length=200)
+    distance = models.DecimalField(u'Расстояние', max_digits=5,
+                                   decimal_places=2, blank=True, null=True,
+                                   help_text=u'Расстояние от города в км.')
 
     class Meta:
         verbose_name = u'Питание'
