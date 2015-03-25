@@ -112,6 +112,10 @@ body {
 @media (max-width: 1199px) {
   .header .navbar-collapse .navbar-nav { margin-left: 0; }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .header .navbar-collapse .navbar-nav { margin-left: 15px; }
+}
+
 .header .middle-wrap {
   position: relative;
   z-index: 1;
@@ -318,6 +322,7 @@ body {
   .block-icons-bar .left-bar {
     position: static;
     top: 0;
+    margin: 0;
   }
   .block-icons-bar .right-wrap,
   .block-icons-bar .left-wrap,

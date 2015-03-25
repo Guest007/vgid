@@ -194,6 +194,13 @@
   border-radius: 50%;
   overflow: hidden;
 }
+@media (min-width: 992px) and (max-width: 1174px) {
+  .margin-for-icons .museum-rows .col-md-3 { width: 50%; }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .margin-for-icons .menu-row .col-xs-12,
+  .margin-for-icons .museum-rows .col-xs-12 { width: 50%; }
+}
 
 /*
 ##       #### ##     ## #### ##    ##  ######
@@ -376,6 +383,13 @@
   border-radius: 50%;
   overflow: hidden;
 }
+@media (min-width: 992px) and (max-width: 1174px) {
+  .margin-for-icons .living-rows .col-md-3 { width: 50%; }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .margin-for-icons .menu-row .col-xs-12,
+  .margin-for-icons .living-rows .col-xs-12 { width: 50%; }
+}
 
 /*
   ########  #######   #######  ########
@@ -388,16 +402,20 @@
 */
 
 .bg-food { background-color: #ECF0F1; }
-.block-food-filters .nav-tabs li .btn-fab.btn-ico-inn {
-    background-position: -4px -1280px;
+.block-food-filters .nav-tabs li .btn-fab.btn-ico-caffe {
+    background-position: -4px -1519px;
     background-color: #E74C3C !important;
 }
-.block-food-filters .nav-tabs li .btn-fab.btn-ico-cottage {
-    background-position: -0px -1362px;
+.block-food-filters .nav-tabs li .btn-fab.btn-ico-pizza {
+    background-position: -0px -1602px;
     background-color: #E74C3C !important;
 }
-.block-food-filters .nav-tabs li .btn-fab.btn-ico-appart {
-    background-position: -2px -1442px;
+.block-food-filters .nav-tabs li .btn-fab.btn-ico-roll {
+    background-position: -2px -1682px;
+    background-color: #E74C3C !important;
+}
+.block-food-filters .nav-tabs li .btn-fab.btn-ico-deliver {
+    background-position: -2px -1760px;
     background-color: #E74C3C !important;
 }
 
@@ -558,4 +576,10 @@
   border-radius: 50%;
   overflow: hidden;
 }
-
+@media (min-width: 992px) and (max-width: 1174px) {
+  .margin-for-icons .food-rows .col-md-3 { width: 50%; }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .margin-for-icons .menu-row .col-xs-12,
+  .margin-for-icons .food-rows .col-xs-12 { width: 50%; }
+}

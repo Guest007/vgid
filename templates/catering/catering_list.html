@@ -5,7 +5,7 @@
 
 {% block color_line %}
     <div class="green-bar" style="background-color: #E74C3C;">
-      <h2>Общепит</h2>
+      <h2>Питание</h2>
     </div>
 {% endblock %}
 
@@ -32,16 +32,20 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" {% if type_active == 'one' or not type_active %}class="active"{% endif %}>
-        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-inn"></a>
-        <div class="nt-c">Гостиницы и хостелы</div>
+        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-caffe"></a>
+        <div class="nt-c">Кафе и рестораны</div>
       </li>
       <li role="presentation" {% if type_active == 'two' %}class="active"{% endif %}>
-        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-cottage"></a>
-        <div class="nt-c">Базы отдыха и коттеджи</div>
+        <a href="#two" aria-controls="two" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-pizza"></a>
+        <div class="nt-c">Фастфуд и пиццерии</div>
       </li>
       <li role="presentation" {% if type_active == 'three' %}class="active"{% endif %}>
-        <a href="#appartaments" aria-controls="apartaments" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-appart"></a>
-        <div class="nt-c">Апартаменты</div>
+        <a href="#three" aria-controls="three" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-roll"></a>
+        <div class="nt-c">Суши и роллы</div>
+      </li>
+      <li role="presentation" {% if type_active == 'four' %}class="active"{% endif %}>
+        <a href="#four" aria-controls="four" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-deliver"></a>
+        <div class="nt-c">Доставка</div>
       </li>
     </ul>
 
@@ -63,7 +67,7 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane {% if type_active == 'two' %}active{% endif %}" id="profile">
+      <div role="tabpanel" class="tab-pane {% if type_active == 'two' %}active{% endif %}" id="two">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
             <div class="text-center"><a href="?type=two&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'two' %}active{% endif %}">Город</a></div>
@@ -79,7 +83,23 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane {% if type_active == 'three' %}active{% endif %}" id="apartaments">
+      <div role="tabpanel" class="tab-pane {% if type_active == 'three' %}active{% endif %}" id="three">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <div class="text-center"><a href="?type=three&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'three' %}active{% endif %}">Город</a></div>
+            <div class="text-center"><a href="?type=three&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'three' %}active{% endif %}">&lt;10км.</a></div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="text-center"><a href="?type=three&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'three' %}active{% endif %}">10-30км.</a></div>
+            <div class="text-center"><a href="?type=three&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'three' %}active{% endif %}">30-50км.</a></div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="text-center"><a href="?type=three&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'three' %}active{% endif %}">50-100км.</a></div>
+            <div class="text-center"><a href="?type=three&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'three' %}active{% endif %}">&gt;100км.</a></div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane {% if type_active == 'three' %}active{% endif %}" id="four">
         <div class="row">
           <div class="col-sm-4 col-xs-12">
             <div class="text-center"><a href="?type=three&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'three' %}active{% endif %}">Город</a></div>
