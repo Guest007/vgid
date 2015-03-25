@@ -506,7 +506,7 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
-  border-bottom: 2px solid #2B81B9;
+  border-bottom: 1px solid #2B81B9;
   position: relative;
 }
 .block-events-filters .filters li {
@@ -559,14 +559,14 @@ body {
   content: "";
   position: absolute;
   z-index: 4;
-  bottom: -3px;
+  bottom: -2px;
   background: none;
   left: 50%;
-  border-top: 15px solid transparent;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 15px solid #ECF0F1;
-  margin-left: -20px;
+  border-top: 16px solid transparent;
+  border-left: 21px solid transparent;
+  border-right: 21px solid transparent;
+  border-bottom: 16px solid #ECF0F1;
+  margin-left: -21px;
 }
 .block-events-filters .filters .line {
   padding: 0;

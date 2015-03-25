@@ -47,6 +47,9 @@ class Living(ParentModel):
         verbose_name = u'Проживание'
         verbose_name_plural = u'Объекты проживания'
 
+    def get_absolute_path(self):
+        return "/living/{}".format(self.slug)
+
 
 class Room(ParentModel):
     """

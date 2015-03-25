@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+{% load endless %}
+
+{% block color_line %}
+    <div class="green-bar events">
+      <h2>События</h2>
+    </div>
+{% endblock %}
+
+{% block man-hand %}
+    <img src="{% static 'img/bg-excursion-hand-events.png' %}">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
+{% endblock %}
+
+{% block main_content %}
+
+<div class="block-events bg-light-grey">
+  <div class="container">
+    <div class="row">
+      <div class="margin-for-icons">
+        <div class="col-lg-10 col-lg-offset-1">
+          <div class="block-events-filters clearfix">
+            <div class="filters-wrap">
+              <ul class="filters">
+                <li class="active">
+                  <a class="btn btn-default btn-fab btn-raised btn-date" href="javascript:void(0)"></a>
+                  <div>Выбрать дату</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-sport" data-typeval="sport" href="javascript:void(0)"></a>
+                  <div>Спорт</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-exhibitions" data-typeval="exhibitions" href="javascript:void(0)"></a>
+                  <div>Выставки</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-music" data-typeval="music" href="javascript:void(0)"></a>
+                  <div>Музыка</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-theater" data-typeval="theater" href="javascript:void(0)"></a>
+                  <div>Театр</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-moovies" data-typeval="moovies" href="javascript:void(0)"></a>
+                  <div>Кино</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-fests" data-typeval="fests" href="javascript:void(0)"></a>
+                  <div>Фестивали</div>
+                </li>
+                <li>
+                  <a class="btn btn-default btn-fab btn-raised btn-other" data-typeval="other" href="javascript:void(0)"></a>
+                  <div>Другое</div>
+                </li>
+                <li class="line line-1"></li>
+                <li class="line line-2"></li>
+                <li class="line line-3"></li>
+                <li class="line line-4"></li>
+              </ul>
+            </div>
+            <form>
+              <input type="hidden" name="date_from" class="date_from" value="2015-03-04">
+              <input type="hidden" name="date_to" class="date_to" value="2015-04-15">
+              <div class="hidden">
+                <select name="type" class="filter-type-select">
+                  <option value="">Все</option>
+                  <option value="sport">Спорт</option>
+                  <option value="exhibitions" selected>Выставки</option>
+                  <option value="music">Музыка</option>
+                  <option value="theater">Театр</option>
+                  <option value="moovies">Кино</option>
+                  <option value="fests">Фестивали</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                  <div class="date-filter" id="date-filter"></div>
+                </div>
+              </div>
+              <div class="text-center margin-top-15">
+                <button class="btn btn-primary">Найти событие</button>
+              </div>
+            </form>
+          </div>
+
+
+
+          <div class="block-events-rows clearfix">
+            <div class="row">
+<!-- START OF INFO ROW -->
+            <div class="col-lg-10 col-lg-offset-1 col-xs-12">
+
+<!-- START OF INFO BLOCK (4 in line) -->
+
+         {% for obj in object_list %}
+           {% if forloop.counter0 < 4 %}
+
+                <a class="block-events-row clearfix ripple-me" href="{{ obj.get_absolute_path }}">
+                  <div class="col-md-3 col-sm-4 col-xs-12 img">
+                  {% thumbnail obj.image "180x180" crop="center" as im %}
+                    <img src="{{ obj.image.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive">
+                  {% empty %}
+                    <img src="{% static 'img/img-event-teaser-1.jpg' %}" class="img-responsive">
+                  {% endthumbnail %}
+                  </div>
+                  <div class="col-md-9 col-sm-8 col-xs-12">
+                    <div class="date">{{ obj.date_start }}</div>
+                    <div class="h3">{{ obj.title }}</div>
+                    <div class="text">
+                      {{ obj.description|striptags|safe }}
+                    </div>
+                  </div>
+                </a>
+
+           {% endif %}
+         {% endfor %}
+
+<!-- END OF INFO BLOCK -->
+
+            </div>
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="block-slider-promo slider-flex bg-night-blue margin-top-20">
+      <div class="">
+        <ul class="bxslider clearfix">
+          <li>
+            <a href="javascript:void(0)">
+              <div class="container">
+                <div class="text-wrap margin-for-icons">
+                  <div class="text-caption">
+                    <div class="h2">это промоблок</div>
+                    <div class="">Круглая Башня построена в 1550 году для защиты ворот городских стен, с 1923 году в ней был открыт ресторан.<br>
+                      Согревающий камин Живая музыка, караоке,  Wi-Fi Разнообразное меню<br>
+                      Режим работы:  10:00-00:00<br>
+                      Адрес: г. Выборг, Рыночная Площадь,  (881378)2-03-86,</div>
+                  </div>
+                </div>
+              </div>
+              <img src="{% static 'img/img-slider-2.jpg' %}" alt="image" />
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <div class="container">
+                <div class="text-wrap margin-for-icons">
+                  <div class="text-caption">
+                    <div class="h2">это промоблок</div>
+                    <div class="">Круглая Башня построена в 1550 году для защиты ворот городских стен, с 1923 году в ней был открыт ресторан.<br>
+                      Согревающий камин Живая музыка, караоке,  Wi-Fi Разнообразное меню<br>
+                      Адрес: г. Выборг, Рыночная Площадь,  (881378)2-03-86,</div>
+                  </div>
+                </div>
+              </div>
+              <img src="{% static 'img/img-slider-2.jpg' %}" alt="image" />
+            </a>
+          </li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-2.jpg' %}" alt="image" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="block-events bg-light-grey margin-top-20 padding-bottom-80">
+      <div class="container">
+        <div class="row">
+          <div class="margin-for-icons">
+            <div class="col-lg-10 col-lg-offset-1">
+              <div class="block-events-rows clearfix">
+                <div class="row">
+                  <div class="col-lg-10 col-lg-offset-1 col-xs-12">
+<!-- START OF INFO BLOCK (4 in line) -->
+
+{% include page_template %}
+
+<!-- END OF INFO BLOCK -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

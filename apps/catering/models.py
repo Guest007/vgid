@@ -30,3 +30,5 @@ class Catering(ParentModel):
         verbose_name = u'Питание'
         verbose_name_plural = u'Точки общепита'
 
+    def get_absolute_path(self):
+        return "/catering/{}".format(self.slug)

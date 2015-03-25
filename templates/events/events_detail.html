@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+{% load endless %}
+
+{% block color_line %}
+    <div class="green-bar events">
+      <h2>События</h2>
+    </div>
+{% endblock %}
+
+
+{% block main_content %}
+
+    <div class="block-events bg-light-grey margin-top-20 padding-bottom-80">
+      <div class="container">
+        <div class="row">
+          <div class="margin-for-icons">
+            <div class="col-lg-10 col-lg-offset-1">
+              <div class="block-events-rows clearfix">
+                <div class="row">
+                  <div class="col-lg-10 col-lg-offset-1 col-xs-12">
+
+                <a class="block-events-row clearfix ripple-me" href="{{ object.get_absolute_path }}">
+                  <div class="col-md-3 col-sm-4 col-xs-12 img">
+                  {% thumbnail object.image "180x180" crop="center" as im %}
+                    <img src="{{ object.image.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive">
+                  {% empty %}
+                    <img src="{% static 'img/img-event-teaser-1.jpg' %}" class="img-responsive">
+                  {% endthumbnail %}
+                  </div>
+                  <div class="col-md-9 col-sm-8 col-xs-12">
+                    <div class="date">{{ object.date_start }}</div>
+                    <div class="h3">{{ object.title }}</div>
+                    <div class="text">
+                      {{ object.description|striptags|safe }}
+                      {{ object.text|safe }}
+                    </div>
+                  </div>
+                </a>
+
+            </div>
+
+
+<!-- END OF INFO BLOCK -->
+
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!-- END OF INFO BLOCK -->
+
+          </div>
+<!-- END OF INFO ROW -->
+        </div>
+
+
+{% endblock %}

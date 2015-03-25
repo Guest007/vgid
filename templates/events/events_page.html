@@ -1,0 +1,36 @@
+{% load endless %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+
+{% paginate 8 object_list %}
+
+
+{% for obj in object_list %}
+ {% if forloop.counter0 >= 4 %}
+
+      <a class="block-events-row clearfix ripple-me" href="{{ obj.get_absolute_path }}">
+        <div class="col-md-3 col-sm-4 col-xs-12 img">
+        {% thumbnail obj.image "180x180" crop="center" as im %}
+          <img src="{{ obj.image.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive">
+        {% empty %}
+          <img src="{% static 'img/img-event-teaser-1.jpg' %}" class="img-responsive">
+        {% endthumbnail %}
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div class="date">{{ obj.date_start }}</div>
+          <div class="h3">{{ obj.title }}</div>
+          <div class="text">
+            {{ obj.description|striptags|safe }}
+          </div>
+        </div>
+      </a>
+
+ {% endif %}
+{% endfor %}
+
+
+<script>$(window).trigger('resize');</script>
+{% show_more "Показать ещё" %}
+
+
+

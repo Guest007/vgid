@@ -7,6 +7,9 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 class EventAdmin(AdminImageMixin, reversion.VersionAdmin):
     prepopulated_fields = {"slug": ("title",)}
+    list_display = ('title', 'date_start')
+    search_fields = ('title', 'date_start')
+
 
 
 class SectionAdmin(AdminImageMixin, reversion.VersionAdmin):

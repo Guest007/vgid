@@ -5,6 +5,7 @@ from showplaces.views import ShowPlacesList, ShowPlacesDetail
 from museums.views import MuseumsList, MuseumsDetail
 from living.views import LivingList, LivingDetail
 from catering.views import FoodList, FoodDetail
+from events.views import EventsList, EventsDetail
 
 urlpatterns = patterns('',
     # Examples:
@@ -21,6 +22,9 @@ urlpatterns = patterns('',
 
     url(r'^catering/$', FoodList.as_view(), name='foods'),
     url(r'^catering/(?P<slug>[-\w]+)/$', FoodDetail.as_view(), name='food'),
+
+    url(r'^events/$', EventsList.as_view(), name='events'),
+    url(r'^events/(?P<slug>[-\w]+)/$', EventsDetail.as_view(), name='event'),
 
 
 
