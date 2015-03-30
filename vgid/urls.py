@@ -6,13 +6,15 @@ from museums.views import MuseumsList, MuseumsDetail
 from living.views import LivingList, LivingDetail
 from catering.views import FoodList, FoodDetail
 from events.views import EventsList, EventsDetail
+from tours.views import ToursList, ToursDetail
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'vgid.views.home', name='home'),
 
     url(r'^showplaces/$', ShowPlacesList.as_view(), name='dostoprim'),
-    url(r'^showplaces/(?P<slug>[-\w]+)/$', ShowPlacesDetail.as_view(), name='dp'),
+    url(r'^showplaces/(?P<slug>[-\w]+)/$', ShowPlacesDetail.as_view(),
+        name='dp'),
 
     url(r'^museums/$', MuseumsList.as_view(), name='museums'),
     url(r'^museums/(?P<slug>[-\w]+)/$', MuseumsDetail.as_view(), name='museum'),
@@ -25,6 +27,9 @@ urlpatterns = patterns('',
 
     url(r'^events/$', EventsList.as_view(), name='events'),
     url(r'^events/(?P<slug>[-\w]+)/$', EventsDetail.as_view(), name='event'),
+
+    url(r'^tours/$', ToursList.as_view(), name='tours'),
+    url(r'^tours/(?P<slug>[-\w]+)/$', ToursDetail.as_view(), name='tour'),
 
 
 

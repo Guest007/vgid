@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+{% load endless %}
+
+{% block color_line %}
+    <div class="green-bar tour">
+      <h2>Экскурсии&nbsp;по&nbsp;Выборгу и&nbsp;окрестностям</h2>
+    </div>
+{% endblock %}
+
+{% block man-hand %}
+    <img src="{% static 'img/man-excurs.png' %}">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
+{% endblock %}
+
+{% block main_content %}
+
+      <div class="block-tour-n-filters bg-tour">
+      <div class="container">
+        <div class="row">
+
+
+
+
+
+
+
+
+          <div class="block-tour-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+            <div class="tour-rows clearfix">
+
+<!-- START OF INFO BLOCK (4 in line) -->
+<div class="col-md-1 col-sm-1 col-xs-1">
+{#              <a class="tour-row btn btn-raised" href="{{ obj.get_absolute_path }}">#}
+{#                <span class="label label-default label-m-place">Выборг</span>#}
+{##}
+{#                <h3>qwertyuio</h3>#}
+{##}
+                <div class="img text-center margin-top-15">
+                  {% thumbnail obj.image "180x180" crop="center" as im %}
+                    <img src="{{ obj.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                  {% empty %}
+                    <img src="{% static 'img/img-city-teaser-1.jpg' %}">
+                  {% endthumbnail %}
+                </div>
+                <div class="text margin-top-15">
+                  TEXT TEXT TEXT
+                </div>
+{#              </a>#}
+            </div>
+
+         {% for obj in object_list %}
+           {% if forloop.counter0 < 4 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a class="tour-row btn btn-raised" href="{{ obj.get_absolute_path }}">
+                <span class="label label-default label-m-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+
+                <h3>{{ obj.title }}</h3>
+
+                <div class="img text-center margin-top-15">
+                  {% thumbnail obj.image "180x180" crop="center" as im %}
+                    <img src="{{ obj.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                  {% empty %}
+                    <img src="{% static 'img/img-city-teaser-1.jpg' %}">
+                  {% endthumbnail %}
+                </div>
+                <div class="text margin-top-15">
+                  {{ obj.description|striptags|safe }}
+                </div>
+              </a>
+            </div>
+           {% endif %}
+         {% endfor %}
+
+<!-- END OF INFO BLOCK -->
+
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="block-slider-promo bg-night-blue margin-top-20">
+      <div class="container">
+        <ul class="bxslider clearfix">
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block-tour-filters clearfix" role="tabpanel">
+  <div class="col-md-8 col-md-offset-2 col-xs-12">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" {% if type_active == 'vyborg' %}class="active"{% endif %}>
+        <a href="#1" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-vyb"></a>
+        <div class="nt-t">Экскурсии по Выборгу</div>
+      </li>
+      <li role="presentation" {% if type_active == 'region' %}class="active"{% endif %}>
+        <a href="#2" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-reg"></a>
+        <div class="nt-t">Экскурсии в Выборгском районе</div>
+      </li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content margin-top-10">
+      <div role="tabpanel" class="tab-pane {% if type_active == 'inn' %}active{% endif %}" id="home">
+        <div class="row">
+
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane {% if type_active == 'ctg' %}active{% endif %}" id="profile">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    {# <div class="bg-night-blue margin-top-20"> #}
+      {# <div class="container"> #}
+        {# <a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="img" class="img-responsive margin-top-20 margin-bottom-20" /></a> #}
+      {# </div> #}
+    {# </div> #}
+
+
+  <div class="block-tour-n-filters bg-tour margin-top-20">
+    <div class="container">
+      <div class="row">
+        <div class="block-tour-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+          <div class="tour-rows clearfix endless_page_template">
+<!-- START OF INFO BLOCK (4 in line) -->
+
+{% include page_template %}
+
+<!-- END OF INFO BLOCK -->
+
+          </div>
+<!-- END OF INFO ROW -->
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

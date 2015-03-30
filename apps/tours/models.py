@@ -32,6 +32,10 @@ class Tour(ParentModel):
         verbose_name_plural = u'Экскурсии'
 
 
+    def get_absolute_path(self):
+        return "/tours/{}".format(self.slug)
+
+
 class TourType(SimpleAbstract):
     """
         Type of Tour
