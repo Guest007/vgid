@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+{% load endless %}
+
+{% block color_line %}
+    <div class="green-bar leisure">
+      <h2>Досуг</h2>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
+{% endblock %}
+
+{% block main_content %}
+
+      <div class="block-leisure-n-filters bg-leisure">
+      <div class="container">
+        <div class="row">
+
+
+<div class="block-leisure-filters clearfix" role="tabpanel">
+  <div class="col-md-8 col-md-offset-2 col-xs-12">
+  {# <form> #}
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-photo"></a>
+        <div>Тип</div>
+      </li>
+      <li role="presentation">
+        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-ruller"></a>
+        <div>Удаленность</div>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content margin-top-10">
+      <div role="tabpanel" class="tab-pane active" id="home">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            {% for pt in p_types %}{% if forloop.counter < 3 %}
+            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
+            {% endif %}{% endfor %}
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            {% for pt in p_types %}{% if forloop.counter >= 3 and forloop.counter < 5 %}
+            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
+            {% endif %}{% endfor %}
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            {% for pt in p_types %}{% if forloop.counter >= 5 and forloop.counter < 7 %}
+            <div class="text-center"><a href="?pt={{ pt.pk }}{% if pt_active.slug == pt.slug %}-{% endif %}" class="btn-filter {% if pt_active.slug == pt.slug %}active{% endif %}">{{ pt.title }}</a></div>
+            {% endif %}{% endfor %}
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <div class="text-center"><a href="?dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" %}active{% endif %}">Город</a></div>
+            <div class="text-center"><a href="?dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" %}active{% endif %}">&lt;10км.</a></div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="text-center"><a href="?dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" %}active{% endif %}">10-30км.</a></div>
+            <div class="text-center"><a href="?dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" %}active{% endif %}">30-50км.</a></div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="text-center"><a href="?dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" %}active{% endif %}">50-100км.</a></div>
+            <div class="text-center"><a href="?dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" %}active{% endif %}">&gt;100км.</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {# </form> #}
+  </div>
+</div>
+
+
+
+
+
+          <div class="block-leisure-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+            <div class="leisure-rows clearfix">
+
+<!-- START OF INFO BLOCK (4 in line) -->
+
+         {% for obj in object_list %}
+           {% if forloop.counter0 < 4 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a class="leisure-row btn btn-raised" href="{{ obj.get_absolute_path }}">
+                <span class="label label-default label-place">{% if obj.distance > 1 %}{{ obj.distance }} км. от Выборга{% else %}Выборг{% endif %}</span>
+
+                <h3>{{ obj.title }}</h3>
+
+                <div class="img text-center margin-top-15">
+                  {% thumbnail obj.image "180x180" crop="center" as im %}
+                    <img src="{{ obj.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                  {% empty %}
+                    <img src="{% static 'img/img-city-teaser-1.jpg' %}">
+                  {% endthumbnail %}
+                </div>
+                <div class="text margin-top-15">
+                  {{ obj.description|striptags|safe }}
+                </div>
+              </a>
+            </div>
+           {% endif %}
+         {% endfor %}
+
+<!-- END OF INFO BLOCK -->
+
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="block-slider-promo bg-leisure margin-top-20">
+      <div class="container">
+        <ul class="bxslider clearfix">
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    {# <div class="bg-night-blue margin-top-20"> #}
+      {# <div class="container"> #}
+        {# <a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="img" class="img-responsive margin-top-20 margin-bottom-20" /></a> #}
+      {# </div> #}
+    {# </div> #}
+
+
+  <div class="block-leisure-n-filters bg-leisure margin-top-20">
+    <div class="container">
+      <div class="row">
+        <div class="block-leisure-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+          <div class="leisure-rows clearfix endless_page_template">
+<!-- START OF INFO BLOCK (4 in line) -->
+
+{% include page_template %}
+
+<!-- END OF INFO BLOCK -->
+
+          </div>
+<!-- END OF INFO ROW -->
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

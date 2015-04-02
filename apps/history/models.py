@@ -22,6 +22,8 @@ class History(ParentModel):
         verbose_name = u'Новость'
         verbose_name_plural = u'Новости'
 
+    def get_absolute_path(self):
+        return "/history/{}".format(self.slug)
 
 class Section(SimpleAbstract):
 

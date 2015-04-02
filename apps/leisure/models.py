@@ -22,6 +22,9 @@ class Leisure(ParentModel):
         verbose_name = u'Объект досуга'
         verbose_name_plural = u'Объекты досуга'
 
+    def get_absolute_path(self):
+        return "/leisure/{}".format(self.slug)
+
 
 class Section(SimpleAbstract):
     image = ImageField(_("Image"), upload_to=get_file_name, blank=True, null=True)
