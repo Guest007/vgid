@@ -29,6 +29,9 @@ urlpatterns = patterns('',
     url(r'^events/$', EventsList.as_view(), name='events'),
     url(r'^events/(?P<slug>[-\w]+)/$', EventsDetail.as_view(), name='event'),
 
+    url(r'^history/$', EventsList.as_view(), name='history'),
+    url(r'^history/(?P<slug>[-\w]+)/$', EventsDetail.as_view(), name='hist'),
+
     url(r'^tours/$', ToursList.as_view(), name='tours'),
     url(r'^tours/(?P<slug>[-\w]+)/$', ToursDetail.as_view(), name='tour'),
 
