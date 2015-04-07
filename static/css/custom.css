@@ -17,6 +17,14 @@
 .navbar-header {
     display: inline-block;
 }
+.header .navbar-contacts-bottom,
+.header .navbar-contacts {
+  padding: 10px 15px 0 0;
+  margin-left: -25px;
+}
+.logo-title {
+  padding-left: 15px;
+}
 .header .navbar-h {
   font-size: 23px;
   font-family: 'BebasNeueBold', sans-serif;
