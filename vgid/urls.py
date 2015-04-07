@@ -8,6 +8,8 @@ from catering.views import FoodList, FoodDetail
 from events.views import EventsList, EventsDetail
 from tours.views import ToursList, ToursDetail
 from leisure.views import LeisureList, LeisureDetail
+from django.views.generic import TemplateView
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -37,6 +39,9 @@ urlpatterns = patterns('',
 
     url(r'^leisure/$', LeisureList.as_view(), name='leisures'),
     url(r'^leisure/(?P<slug>[-\w]+)/$', LeisureDetail.as_view(), name='leisure'),
+
+    url(r'^transport/$', TemplateView.as_view(
+        template_name='transport/transport_list.html'), name='transport'),
 
 
 

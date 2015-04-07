@@ -1005,3 +1005,190 @@
   .margin-for-icons .leisure-rows .col-xs-12 { width: 50%; }
 }
 
+/*
+  ######## ########     ###    ##    ##  ######  ########   #######  ########  ########
+     ##    ##     ##   ## ##   ###   ## ##    ## ##     ## ##     ## ##     ##    ##
+     ##    ##     ##  ##   ##  ####  ## ##       ##     ## ##     ## ##     ##    ##
+     ##    ########  ##     ## ## ## ##  ######  ########  ##     ## ########     ##
+     ##    ##   ##   ######### ##  ####       ## ##        ##     ## ##   ##      ##
+     ##    ##    ##  ##     ## ##   ### ##    ## ##        ##     ## ##    ##     ##
+     ##    ##     ## ##     ## ##    ##  ######  ##         #######  ##     ##    ##
+*/
+
+.header .green-bar.transp { background: #27AE60; color: #F1C40F; }
+
+.bg-transp { background-color: #F1C40F; }
+.block-transp-filters .nav-tabs li .btn-fab.btn-ico-loc {
+    background-position: 0px -3px;
+    background-color: #F1C40F !important;
+}
+.block-transp-filters .nav-tabs li .btn-fab.btn-ico-rem {
+    background-position: -1px -80px;
+    background-color: #F1C40F !important;
+}
+
+.block-transp-n-filters { padding: 20px 0 0; }
+.block-transp-n-filters.padding-bottom { padding-bottom: 200px; }
+/* .block-transp-filters { margin-top: -65px; padding-bottom: 40px; } */
+.block-transp-filters { margin-top: 0; padding-bottom: 40px; background-color: #F1C40F; }
+.block-transp-filters .nav-tabs { background: none; text-align: center; border-bottom: 1px solid #fff; }
+.block-transp-filters .nav-tabs li {
+  float: none;
+  display: inline-block;
+  padding: 0 0 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  min-width: 195px;
+  white-space: nowrap;
+  color: #FFF;
+  position: relative;
+  margin-bottom: 0;
+}
+.block-transp-filters .nav-tabs li .btn-fab {
+  width: 87px;
+  height: 87px;
+  /*background-color: #16A085 !important;*/
+  background: url(../img/ico-transp.png) no-repeat scroll -1px -0px #9B59B6;
+  border: 5px solid #FFF !important;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+/*.block-transp-filters .nav-tabs li .btn-fab.btn-ico-photo { background-position: -2px -801px; }
+.block-transp-filters .nav-tabs li .btn-fab.btn-ico-ruller { background-position: -1px -880px; }
+*/
+.block-transp-filters .nav-tabs li.active:before {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  content: "";
+  border-bottom: 25px solid #fff;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  margin-left: -28px;
+}
+.block-transp-filters .nav-tabs li.active:after {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  z-index: 4;
+  width: 0;
+  height: 0;
+  content: "";
+  border-bottom: 25px solid #F1C40F;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  margin-left: -28px;
+}
+
+@media (max-width: 440px) {
+  .block-transp-filters .nav-tabs li.active:before,
+  .block-transp-filters .nav-tabs li.active:after { display: none; }
+  .block-transp-filters .nav-tabs li.active {
+    background: none repeat scroll 0 0 rgba(22, 160, 133, 0.50);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+.block-transp-filters .btn-filter {
+  display: inline-block;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0 15px 1px;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: background-color 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+          transition: background-color 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+  margin-top: 10px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+.block-transp-filters .btn-filter:hover {
+  background:  rgba(155,89,182,0.4);
+}
+.block-transp-filters .btn-filter.active {
+  background: #9B59B6;
+  color: #FFF;
+}
+.block-transp-filters .btn-filter.changed {
+  -webkit-animation: 0.3s ease 0s normal none 1 filter-nonactive-changed;
+          animation: 0.3s ease 0s normal none 1 filter-nonactive-changed;
+}
+.block-transp-filters .btn-filter.active.changed {
+  -webkit-animation: 0.3s ease 0s normal none 1 filter-active-changed;
+          animation: 0.3s ease 0s normal none 1 filter-active-changed;
+}
+@keyframes filter-active-changed {
+  0, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+@-webkit-keyframes filter-active-changed {
+  0, 100% { opacity: 1; -webkit-transform: scale(1); }
+  50% { opacity: 1; -webkit-transform: scale(1.1); }
+}
+@keyframes filter-nonactive-changed {
+  0, 100% { opacity: 1; transform: scale(1); }
+  50% { transform: scale(0.9); }
+}
+@-webkit-keyframes filter-nonactive-changed {
+  0, 100% { opacity: 1; -webkit-transform: scale(1); }
+  50% { opacity: 1; -webkit-transform: scale(0.9); }
+}
+
+.block-transp-rows h2 {
+  color: #1ABC9C;
+  font-family: 'BebasNeueBold', sans-serif;
+  font-size: 34px;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+.block-transp-rows .transp-row {
+  background: #1ABC9C !important;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none !important;
+  color: #1ABC9C;
+  text-transform: none;
+  white-space: normal;
+  margin: 0 0 20px;
+  border-radius: 3px;
+}
+.block-transp-rows .transp-rows { padding-left: 5px; padding-right: 5px; }
+.block-transp-rows .transp-rows > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.block-transp-rows .transp-row .label-place {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0 30px;
+  color: #F1C40F;
+  font-size: 13px;
+  font-weight: normal;
+}
+.block-transp-rows .transp-row h3 {
+  font-family: 'BebasNeueRegular', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.block-transp-rows .transp-row .img img {
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+@media (min-width: 992px) and (max-width: 1174px) {
+  .margin-for-icons .transp-rows .col-md-3 { width: 50%; }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .margin-for-icons .menu-row .col-xs-12,
+  .margin-for-icons .transp-rows .col-xs-12 { width: 50%; }
+}
+
