@@ -844,7 +844,7 @@
 .block-leisure-n-filters.padding-bottom { padding-bottom: 200px; }
 /* .block-leisure-filters { margin-top: -65px; padding-bottom: 40px; } */
 .block-leisure-filters { margin-top: 0; padding-bottom: 40px; background-color: #1ABC9C; }
-.block-leisure-filters .nav-tabs { background: none; text-align: center; border-bottom: 1px solid #fff; margin-top: 70px;}
+.block-leisure-filters .nav-tabs { background: none; text-align: center; border-bottom: 1px solid #fff; }
 .block-leisure-filters .nav-tabs li {
   float: none;
   display: inline-block;
