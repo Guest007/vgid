@@ -1192,3 +1192,207 @@
   .margin-for-icons .transp-rows .col-xs-12 { width: 50%; }
 }
 
+/*
+  ##     ##    ###    ########   ######
+  ###   ###   ## ##   ##     ## ##    ##
+  #### ####  ##   ##  ##     ## ##
+  ## ### ## ##     ## ########   ######
+  ##     ## ######### ##              ##
+  ##     ## ##     ## ##        ##    ##
+  ##     ## ##     ## ##         ######
+*/
+
+.header .green-bar.maps {
+    background: #2ECC71;
+    color: #FFFFFF;
+    border-bottom: 1px solid #fff;
+}
+
+.bg-maps { background-color: #2ECC71; }
+.block-maps-filters .nav-tabs li .btn-fab.btn-ico-vyb {
+    background-position: -2px 2px;
+    background-color: #F1C40F !important;
+}
+.block-maps-filters .nav-tabs li .btn-fab.btn-ico-reg {
+    background-position: -0px -82px;
+    background-color: #F1C40F !important;
+}
+
+.block-maps-n-filters { padding: 20px 0 0; }
+.block-maps-n-filters.padding-bottom { padding-bottom: 200px; }
+/* .block-maps-filters { margin-top: -65px; padding-bottom: 40px; } */
+.block-maps-filters { margin-top: 0; padding-bottom: 40px; background-color: #2ECC71; }
+.block-maps-filters .nav-tabs { background: none; text-align: center; border-bottom: 1px solid #F1C40F; margin-top: 70px;}
+.block-maps-filters .nav-tabs li {
+  float: none;
+  display: inline-block;
+  padding: 0 0 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  min-width: 195px;
+  white-space: nowrap;
+  color: #FFF;
+  position: relative;
+  margin-bottom: 0;
+}
+.block-maps-filters .nav-tabs li .btn-fab {
+  width: 87px;
+  height: 87px;
+  /*background-color: #16A085 !important;*/
+  background: url(../img/ico-excurs.png) no-repeat scroll -1px -0px #2ECC71;
+  border: 5px solid #FFF !important;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+/*.block-maps-filters .nav-tabs li .btn-fab.btn-ico-photo { background-position: -2px -801px; }
+.block-maps-filters .nav-tabs li .btn-fab.btn-ico-ruller { background-position: -1px -880px; }
+*/
+.block-maps-filters .nav-tabs li.active:before {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  content: "";
+  border-bottom: 25px solid #F1C40F;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  margin-left: -28px;
+}
+.block-maps-filters .nav-tabs li.active:after {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  z-index: 4;
+  width: 0;
+  height: 0;
+  content: "";
+  border-bottom: 25px solid #16A085;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  margin-left: -28px;
+}
+
+@media (max-width: 440px) {
+  .block-maps-filters .nav-tabs li.active:before,
+  .block-maps-filters .nav-tabs li.active:after { display: none; }
+  .block-maps-filters .nav-tabs li.active {
+    background: none repeat scroll 0 0 rgba(22, 160, 133, 0.50);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+.block-maps-filters .btn-filter {
+  display: inline-block;
+  color: #F1C40F;
+  border-radius: 12px;
+  padding: 0 15px 1px;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: background-color 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+          transition: background-color 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+  margin-top: 10px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+.block-maps-filters .btn-filter:hover {
+  background:  rgba(231,76,70,0.4);
+}
+.block-maps-filters .btn-filter.active {
+  background: #F1C40F;
+  color: #FFF;
+}
+.block-maps-filters .btn-filter.changed {
+  -webkit-animation: 0.3s ease 0s normal none 1 filter-nonactive-changed;
+          animation: 0.3s ease 0s normal none 1 filter-nonactive-changed;
+}
+.block-maps-filters .btn-filter.active.changed {
+  -webkit-animation: 0.3s ease 0s normal none 1 filter-active-changed;
+          animation: 0.3s ease 0s normal none 1 filter-active-changed;
+}
+@keyframes filter-active-changed {
+  0, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+@-webkit-keyframes filter-active-changed {
+  0, 100% { opacity: 1; -webkit-transform: scale(1); }
+  50% { opacity: 1; -webkit-transform: scale(1.1); }
+}
+@keyframes filter-nonactive-changed {
+  0, 100% { opacity: 1; transform: scale(1); }
+  50% { transform: scale(0.9); }
+}
+@-webkit-keyframes filter-nonactive-changed {
+  0, 100% { opacity: 1; -webkit-transform: scale(1); }
+  50% { opacity: 1; -webkit-transform: scale(0.9); }
+}
+
+.block-maps-rows h2 {
+  color: #2ecc71;
+  font-family: 'BebasNeueBold', sans-serif;
+  font-size: 34px;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+.block-maps-rows .maps-row {
+  background: #16A085 !important;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none !important;
+  color: #16A085;
+  text-transform: none;
+  white-space: normal;
+  margin: 0 0 20px;
+  border-radius: 3px;
+}
+.block-maps-rows .maps-rows { padding-left: 5px; padding-right: 5px; }
+.block-maps-rows .maps-rows > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.block-maps-rows .maps-row .label-place {
+  background: #16A085;
+  border-radius: 10px;
+  padding: 0 30px;
+  color: #F1C40F;
+  font-size: 13px;
+  font-weight: normal;
+}
+.block-maps-rows .maps-row h3 {
+  font-family: 'BebasNeueRegular', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.block-maps-rows .maps-row .img img {
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.text-container {
+    color: #FFFFFF;
+}
+.text-container .text h3 {
+  font-family: 'BebasNeueRegular', sans-serif;
+  font-size: 34px;
+  text-align: center;
+}
+.text-container .text p {
+  /*font-family: 'BebasNeueRegular', sans-serif;*/
+  /*font-size: 18px;*/
+  /*text-align: center;*/
+}
+
+@media (min-width: 992px) and (max-width: 1174px) {
+  .margin-for-icons .maps-rows .col-md-3 { width: 50%; }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .margin-for-icons .menu-row .col-xs-12,
+  .margin-for-icons .maps-rows .col-xs-12 { width: 50%; }
+}

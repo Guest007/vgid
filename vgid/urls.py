@@ -43,6 +43,8 @@ urlpatterns = patterns('',
     url(r'^transport/$', TemplateView.as_view(
         template_name='transport/transport_list.html'), name='transport'),
 
+    url(r'^maps/$', TemplateView.as_view(
+        template_name='maps/maps_list.html'), name='maps'),
 
 
     url(r'^feedback/', include('feedback.urls')),
