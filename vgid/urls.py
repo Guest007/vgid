@@ -8,12 +8,13 @@ from catering.views import FoodList, FoodDetail
 from events.views import EventsList, EventsDetail
 from tours.views import ToursList, ToursDetail
 from leisure.views import LeisureList, LeisureDetail
+from core.views import HomepageView
 from django.views.generic import TemplateView
 
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'vgid.views.home', name='home'),
+    url(r'^$', HomepageView.as_view(), name='home'),
 
     url(r'^showplaces/$', ShowPlacesList.as_view(), name='dostoprim'),
     url(r'^showplaces/(?P<slug>[-\w]+)/$', ShowPlacesDetail.as_view(),

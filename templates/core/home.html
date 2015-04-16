@@ -1,6 +1,8 @@
 {% load static from staticfiles %}
 {% load i18n %}
-{% load side_menu from core_utils %}
+{% load thumbnail %}
+
+{#{% load side_menu from core_utils %}#}
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -37,7 +39,7 @@
   <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
   <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 
 <body>
@@ -51,7 +53,7 @@
 
 <div class="header">
   <div class="block-icons-bar fixed">
-{% side_menu %}
+{#{% side_menu %}#}
   </div>
 
 <!-- START OF TOP LINE -->
@@ -64,7 +66,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>-->
-                <a class="navbar-brand withoutripple" href="/">
+                <a class="navbar-brand withoutripple" href="javascript:void(0)">
                   <img src="{% static 'img/logo.png' %}" class="pull-left" alt="Logo">
                   <span class="logo-title hidden-xs hidden-sm">ИНФОРМАЦИОННО-ТУРИСТИЧЕСКИЙ ЦЕНТР ВЫБОРГА</span>
                 </a>
@@ -107,7 +109,7 @@
             <div class="excursion-order-wrap">
 
 {% block man-hand %}
-    <img src="{% static 'img/bg-excursion-hand.png' %}">
+    <img src="{% static 'img/man-home.png' %}">
 {% endblock %}
 
               <a href="javascript:void(0)" class="btn btn-default btn-fab btn-raised" data-toggle="modal" data-target="#orderExcursionModal">Заказать<br /> экскурсию</a>
@@ -119,6 +121,9 @@
 <!-- END OF MIDDLE LINE -->
 
 {% block color_line %}
+    <div class="top-bar" style="background-color: #64C6A7;">
+{#      <h2>Достопримечательности Выборга&nbsp;и&nbsp;окрестностей</h2>#}
+    </div>
 {% endblock %}
 
   </div>
@@ -129,8 +134,128 @@
 
   <div class="main">
 
-  {% block main_content %}
-  {% endblock %}
+{% block main_content %}
+
+
+      <div class="block-home-n-menu bg-home">
+      <div class="container">
+        <div class="row">
+
+
+<div class="block-home-menu clearfix" role="tabpanel">
+  <div class="col-lg-10 col-lg-offset-1">
+  {# <form> #}
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="/living" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-sights"></a>
+        <div>Достопримечательности</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-museums"></a>
+        <div>Музеи</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-living"></a>
+        <div>Проживание</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-food"></a>
+        <div>Питание</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-excursions"></a>
+        <div>Экскурсии</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-transport"></a>
+        <div>Транспорт</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-maps"></a>
+        <div>Карты</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-events"></a>
+        <div>События</div>
+      </li>
+      <li role="presentation">
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-history"></a>
+        <div>История</div>
+      </li>
+      <li class="block"><!-- role="presentation">-->
+        <a href="/museums" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-leisure"></a>
+        <div>Досуг</div>
+      </li>
+    </ul>
+
+  {# </form> #}
+  </div>
+</div>
+
+
+
+
+
+          <div class="block-home-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+            <div class="home-rows clearfix">
+
+
+
+            </div>
+<!-- END OF INFO ROW -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="block-slider-promo bg-night-blue margin-top-20">
+      <div class="container">
+        <ul class="bxslider clearfix">
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+          <li><a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="image" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    {# <div class="bg-night-blue margin-top-20"> #}
+      {# <div class="container"> #}
+        {# <a href="javascript:void(0)"><img src="{% static 'img/img-slider-1.png' %}" alt="img" class="img-responsive margin-top-20 margin-bottom-20" /></a> #}
+      {# </div> #}
+    {# </div> #}
+
+
+  <div class="block-home-n-menu bg-night-blue margin-top-20">
+    <div class="container">
+      <div class="row">
+        <div class="block-home-rows margin-for-icons">
+<!-- START OF INFO ROW -->
+          <div class="home-rows clearfix endless_page_template">
+<!-- START OF INFO BLOCK (4 in line) -->
+
+{#{% include page_template %}#}
+
+<!-- END OF INFO BLOCK -->
+
+          </div>
+<!-- END OF INFO ROW -->
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+{% endblock %}
 
   </div>
 
