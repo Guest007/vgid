@@ -81,7 +81,7 @@
   ##     ##  #######   ######  ########  #######  ##     ##  ######
 */
 
-
+.header .green-bar.museums { background: #9B59B6; color: #F1C40F; }
 .bg-museum { background-color: #F1C40F; }
 .block-museum-n-filters { padding: 20px 0 0; }
 .block-museum-n-filters.padding-bottom { padding-bottom: 200px; }
@@ -228,7 +228,7 @@
   font-weight: normal;
 }
 .block-museum-rows .museum-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;
@@ -257,7 +257,7 @@
 ##        ##    ## ##    ##  ##   ### ##    ##
 ######## ####    ###    #### ##    ##  ######
 */
-
+.header .green-bar.living { background: #3498D8; color: #ECF0F1; }
 .bg-living { background-color: #ECF0F1; }
 .block-living-filters .nav-tabs li .btn-fab.btn-ico-inn {
     background-position: -4px -1280px;
@@ -417,7 +417,7 @@
   font-weight: normal;
 }
 .block-living-rows .living-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;
@@ -446,7 +446,7 @@
   ##       ##     ## ##     ## ##     ##
   ##        #######   #######  ########
 */
-
+.header .green-bar.food { background: #E74C3C; color: #ECF0F1; }
 .bg-food { background-color: #ECF0F1; }
 .block-food-filters .nav-tabs li .btn-fab.btn-ico-caffe {
     background-position: -4px -1519px;
@@ -610,7 +610,7 @@
   font-weight: normal;
 }
 .block-food-rows .food-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;
@@ -797,7 +797,7 @@
   font-weight: normal;
 }
 .block-tour-rows .tour-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;
@@ -985,7 +985,7 @@
   font-weight: normal;
 }
 .block-leisure-rows .leisure-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;
@@ -1172,7 +1172,7 @@
   font-weight: normal;
 }
 .block-transp-rows .transp-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;
@@ -1363,7 +1363,7 @@
   font-weight: normal;
 }
 .block-maps-rows .maps-row h3 {
-  font-family: 'BebasNeueRegular', sans-serif;
+  font-family: 'BebasNeueBold', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: 10px;

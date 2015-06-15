@@ -1,4 +1,4 @@
- Django==1.7.7
+Django==1.7.7
 Pillow
 -e git+https://github.com/mariocesar/sorl-thumbnail.git#egg=sorl-thumbnail
 bootstrap-admin
