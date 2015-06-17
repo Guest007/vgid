@@ -18,20 +18,20 @@ class MuseumsList(AjaxListView):
         qs = super(MuseumsList, self).get_queryset()
         dist = self.request.GET.get('dist')
         # p_type = self.request.GET.get('pt')
-        # if dist:
-        #     if '-' not in dist:
-        #         if dist == "1":
-        #             qs = qs.filter(distance__lt=1.00)
-        #         elif dist == "2":
-        #             qs = qs.filter(distance__gt=1.00, distance__lt=10.01)
-        #         elif dist == "3":
-        #             qs = qs.filter(distance__gt=10.00, distance__lt=30.01)
-        #         elif dist == "4":
-        #             qs = qs.filter(distance__gt=30.00, distance__lt=50.01)
-        #         elif dist == "5":
-        #             qs = qs.filter(distance__gt=50.00, distance__lt=100.01)
-        #         elif dist == "6":
-        #             qs = qs.filter(distance__gt=100.00)
+        if dist:
+            if '-' not in dist:
+                if dist == "1":
+                    qs = qs.filter(distance__lt=1.00)
+                elif dist == "2":
+                    qs = qs.filter(distance__gt=1.00, distance__lt=10.01)
+                elif dist == "3":
+                    qs = qs.filter(distance__gt=10.00, distance__lt=30.01)
+                elif dist == "4":
+                    qs = qs.filter(distance__gt=30.00, distance__lt=50.01)
+                elif dist == "5":
+                    qs = qs.filter(distance__gt=50.00, distance__lt=100.01)
+                elif dist == "6":
+                    qs = qs.filter(distance__gt=100.00)
 
         # if p_type:
         #     if '-' not in p_type:
@@ -43,10 +43,10 @@ class MuseumsList(AjaxListView):
         context = super(MuseumsList, self).get_context_data(**kwargs)
         # context['p_types'] = PlaceType.objects.all()
 
-        # dist = self.request.GET.get('dist')
-        # if dist:
-        #     if '-' not in dist:
-        #         context['dist'] = dist
+        dist = self.request.GET.get('dist')
+        if dist:
+            if '-' not in dist:
+                context['dist'] = dist
 
         # pt = self.request.GET.get('pt')
         # if pt:

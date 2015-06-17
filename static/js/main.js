@@ -234,7 +234,7 @@ $(document).on('click', '.block-icons-bar .toggle-bars', function(e){
 });
 
 $(document).on('click', '.block-sights-filters .btn-filter', function(e){
-  e.preventDefault();
+  //e.preventDefault();
   var btn = $(this);
   btn.removeClass('changed');
   btn.toggleClass('active');
@@ -316,3 +316,69 @@ $(window).on('resize load', function(){
     controls.css({width: tgWidth + 'px'});
   }
 });
+
+
+$(window).on('resize load', function(){
+  var rows = $('.block-museum-rows .museum-rows'), inRow = 4, resolutionName = $('.visible-detect div').filter(':visible').data('resolution');
+  if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
+  rows.each(function(){
+    var cells = $(this).find('.museum-row'), i = 1, maxH = 0;
+    cells.css({'min-height': 0});
+    cells.each(function(){
+      var cell = $(this), h = cell.outerHeight();
+      cell.css({'min-height': 0}).addClass('not-done');
+      if(h > maxH) maxH = h;
+      if(i >= inRow) {
+        cells.filter('.not-done').css({'min-height': maxH}).removeClass('not-done');
+        maxH = 0;
+        i = 1;
+      } else {
+        i++;
+      }
+    });
+  });
+}).resize();
+
+//
+//$(window).on('resize load', function(){
+//  var rows = $('.block-food-rows .food-rows'), inRow = 4, resolutionName = $('.visible-detect div').filter(':visible').data('resolution');
+//  if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
+//  rows.each(function(){
+//    var cells = $(this).find('.food-row'), i = 1, maxH = 0;
+//    cells.css({'min-height': 0});
+//    cells.each(function(){
+//      var cell = $(this), h = cell.outerHeight();
+//      cell.css({'min-height': 0}).addClass('not-done');
+//      if(h > maxH) maxH = h;
+//      if(i >= inRow) {
+//        cells.filter('.not-done').css({'min-height': maxH}).removeClass('not-done');
+//        maxH = 0;
+//        i = 1;
+//      } else {
+//        i++;
+//      }
+//    });
+//  });
+//}).resize();
+//
+//
+//$(window).on('resize load', function(){
+//  var rows = $('.block-food-rows .food-rows'), inRow = 4, resolutionName = $('.visible-detect div').filter(':visible').data('resolution');
+//  if(resolutionName == 'xs' || resolutionName == 'sm') inRow = 2;
+//  rows.each(function(){
+//    var cells = $(this).find('.food-row'), i = 1, maxH = 0;
+//    cells.css({'min-height': 0});
+//    cells.each(function(){
+//      var cell = $(this), h = cell.outerHeight();
+//      cell.css({'min-height': 0}).addClass('not-done');
+//      if(h > maxH) maxH = h;
+//      if(i >= inRow) {
+//        cells.filter('.not-done').css({'min-height': maxH}).removeClass('not-done');
+//        maxH = 0;
+//        i = 1;
+//      } else {
+//        i++;
+//      }
+//    });
+//  });
+//}).resize();
