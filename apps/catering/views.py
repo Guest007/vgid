@@ -15,7 +15,7 @@ class FoodList(AjaxListView):
     default_filter_param = 'all'
 
     def get_queryset(self):
-        qs = super(FoodList, self).get_queryset()
+        qs = super(FoodList, self).get_queryset().filter(is_publish=True)
         dist = self.request.GET.get('dist')
         p_type = self.request.GET.get('type')
         if dist:
@@ -35,8 +35,8 @@ class FoodList(AjaxListView):
                 else:
                     qs = qs
 
-        # if p_type:
-        #     qs = qs.filter(type_of_catering__slug=p_type)  # FIXME: must be changed for real type!!!
+        if p_type:
+            qs = qs.filter(type_of_catering__slug=p_type)  #
 
         return qs
 
@@ -50,7 +50,7 @@ class FoodList(AjaxListView):
                 context['dist'] = dist
 
         pt = self.request.GET.get('type', None)
-        context['type_active'] = pt if pt else 'one'
+        context['type_active'] = pt if pt else 'all'
 
         return context
 

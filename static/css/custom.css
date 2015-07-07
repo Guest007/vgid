@@ -604,8 +604,16 @@
 .block-food-rows .food-row .label-place {
   background: #fff;
   border-radius: 10px;
-  padding: 0 30px;
+  /*padding: 0 30px;*/
   color: #E74C3C;
+  font-size: 13px;
+  font-weight: normal;
+}
+.block-food-rows .food-row .label-delivery {
+  background: #E74C3C;
+  border-radius: 10px;
+  padding: 0 15px;
+  color: #fff;
   font-size: 13px;
   font-weight: normal;
 }

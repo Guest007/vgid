@@ -33,8 +33,8 @@ class LivingList(AjaxListView):
                 elif dist == "6":
                     qs = qs.filter(distance__gt=100.00)
 
-        # if p_type:
-        #     qs = qs.filter(type_of_living__slug=p_type)  # FIXME: must be changed for real type!!!
+        if p_type:
+            qs = qs.filter(type_of_living__slug=p_type)  #
 
         return qs
 
@@ -48,7 +48,7 @@ class LivingList(AjaxListView):
                 context['dist'] = dist
 
         pt = self.request.GET.get('type', None)
-        context['type_active'] = pt if pt else 'inn'
+        context['type_active'] = pt if pt else 'all'
 
         return context
 

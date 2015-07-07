@@ -32,19 +32,20 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" {% if type_active == 'inn' %}class="active"{% endif %}>
-        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-inn"></a>
+        <a href="?type=inn" aria-controls="home" role="tab" class="btn btn-default btn-fab btn-raised btn-ico-inn"></a>
         <div class="nt-l">Гостиницы и хостелы</div>
       </li>
       <li role="presentation" {% if type_active == 'ctg' %}class="active"{% endif %}>
-        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-cottage"></a>
+        <a href="?type=ctg" aria-controls="profile" role="tab" class="btn btn-default btn-fab btn-raised btn-ico-cottage"></a>
         <div class="nt-l">Базы отдыха и коттеджи</div>
       </li>
       <li role="presentation" {% if type_active == 'app' %}class="active"{% endif %}>
-        <a href="#appartaments" aria-controls="apartaments" role="tab" data-toggle="tab" class="btn btn-default btn-fab btn-raised btn-ico-appart"></a>
+        <a href="?type=app" aria-controls="apartaments" role="tab" class="btn btn-default btn-fab btn-raised btn-ico-appart"></a>
         <div class="nt-l">Апартаменты</div>
       </li>
     </ul>
 
+{% if type_active != 'all' %}
     <!-- Tab panes -->
     <div class="tab-content margin-top-10">
       <div role="tabpanel" class="tab-pane {% if type_active == 'inn' %}active{% endif %}" id="home">
@@ -96,7 +97,7 @@
         </div>
       </div>
     </div>
-
+{% endif %}
   </div>
 </div>
 

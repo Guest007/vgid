@@ -25,6 +25,7 @@ class Catering(ParentModel):
     distance = models.DecimalField(u'Расстояние', max_digits=5,
                                    decimal_places=2, blank=True, null=True,
                                    help_text=u'Расстояние от города в км.')
+    delivery = models.BooleanField(u'Доставка', default=False)
 
     class Meta:
         verbose_name = u'Питание'

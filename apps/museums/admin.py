@@ -7,6 +7,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 
 class MuseumAdmin(AdminImageMixin, reversion.VersionAdmin):
     prepopulated_fields = {"slug": ("title",)}
-
+    list_display = ('title', 'is_publish', )
+    list_editable = ('is_publish', )
 
 admin.site.register(Museum, MuseumAdmin)
