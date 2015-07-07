@@ -33,15 +33,15 @@
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" {% if type_active == 'restoran' or not type_active %}class="active"{% endif %}>
         <a href="?type=restoran" aria-controls="home" role="tab" class="btn btn-default btn-fab btn-raised btn-ico-caffe"></a>
-        <div class="nt-c">Кафе и рестораны</div>
+        <div class="nt-c">Рестораны</div>
       </li>
       <li role="presentation" {% if type_active == 'sushi-bar' %}class="active"{% endif %}>
         <a href="?type=sushi-bar" aria-controls="two" role="tab" class="btn btn-default btn-fab btn-raised btn-ico-pizza"></a>
-        <div class="nt-c">Фастфуд и пиццерии</div>
+        <div class="nt-c">Фастфуд</div>
       </li>
       <li role="presentation" {% if type_active == 'kafe' %}class="active"{% endif %}>
         <a href="?type=kafe" aria-controls="three" role="tab" class="btn btn-default btn-fab btn-raised btn-ico-roll"></a>
-        <div class="nt-c">Суши и роллы</div>
+        <div class="nt-c">Суши</div>
       </li>
     </ul>
 
@@ -50,15 +50,15 @@
     <div class="tab-content margin-top-10">
       <div role="tabpanel" class="tab-pane {% if type_active == 'restoran' or not type_active %}active{% endif %}" id="home">
         <div class="row">
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=one&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'one' %}active{% endif %}">Город</a></div>
             <div class="text-center"><a href="?type=one&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'one' %}active{% endif %}">&lt;10км.</a></div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=one&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'one' %}active{% endif %}">10-30км.</a></div>
             <div class="text-center"><a href="?type=one&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'one' %}active{% endif %}">30-50км.</a></div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=one&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'one' %}active{% endif %}">50-100км.</a></div>
             <div class="text-center"><a href="?type=one&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'one' %}active{% endif %}">&gt;100км.</a></div>
           </div>
@@ -66,15 +66,15 @@
       </div>
       <div role="tabpanel" class="tab-pane {% if type_active == 'sushi-bar' %}active{% endif %}" id="two">
         <div class="row">
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=two&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'two' %}active{% endif %}">Город</a></div>
             <div class="text-center"><a href="?type=two&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'two' %}active{% endif %}">&lt;10км.</a></div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=two&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'two' %}active{% endif %}">10-30км.</a></div>
             <div class="text-center"><a href="?type=two&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'two' %}active{% endif %}">30-50км.</a></div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=two&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'two' %}active{% endif %}">50-100км.</a></div>
             <div class="text-center"><a href="?type=two&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'two' %}active{% endif %}">&gt;100км.</a></div>
           </div>
@@ -82,15 +82,15 @@
       </div>
       <div role="tabpanel" class="tab-pane {% if type_active == 'kafe' %}active{% endif %}" id="three">
         <div class="row">
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=three&dist=1{% if dist == "1" %}-{% endif %}" class="btn-filter {% if dist == "1" and type_active == 'three' %}active{% endif %}">Город</a></div>
             <div class="text-center"><a href="?type=three&dist=2{% if dist == "2" %}-{% endif %}" class="btn-filter {% if dist == "2" and type_active == 'three' %}active{% endif %}">&lt;10км.</a></div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=three&dist=3{% if dist == "3" %}-{% endif %}" class="btn-filter {% if dist == "3" and type_active == 'three' %}active{% endif %}">10-30км.</a></div>
             <div class="text-center"><a href="?type=three&dist=4{% if dist == "4" %}-{% endif %}" class="btn-filter {% if dist == "4" and type_active == 'three' %}active{% endif %}">30-50км.</a></div>
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4 col-xs-4">
             <div class="text-center"><a href="?type=three&dist=5{% if dist == "5" %}-{% endif %}" class="btn-filter {% if dist == "5" and type_active == 'three' %}active{% endif %}">50-100км.</a></div>
             <div class="text-center"><a href="?type=three&dist=6{% if dist == "6" %}-{% endif %}" class="btn-filter {% if dist == "6" and type_active == 'three' %}active{% endif %}">&gt;100км.</a></div>
           </div>
